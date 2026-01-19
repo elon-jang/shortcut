@@ -1,0 +1,20 @@
+app: VS Code
+shortcuts:
+  - section: Command
+    items:
+      - shortcut: Cmd+Shift+P
+        description: 명령어 팔레트 열기 (모든 기능 검색/실행)
+      - shortcut: Cmd+P
+        description: 파일 빠르게 열기 (Quick Open)
+
+  - section: Editing
+    items:
+      - shortcut: Cmd+D
+        description: 같은 단어 다중 선택 (Multi-Cursor)
+      - shortcut: Option+↑/↓
+        description: 코드 줄 위/아래로 이동
+
+  - section: View
+    items:
+      - shortcut: Ctrl+`
+        description: 터미널 열기/닫기
