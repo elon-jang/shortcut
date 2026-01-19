@@ -1,0 +1,29 @@
+app: Slack
+shortcuts:
+  - section: Navigation
+    items:
+      - shortcut: Cmd+K
+        description: 퀵 스위처 - 채널/동료 이름 검색해서 바로 이동
+      - shortcut: Cmd+[
+        description: 뒤로 가기 - 방금 봤던 이전 채널로 복귀
+      - shortcut: Opt+Shift+↓
+        description: 안 읽은 메시지 순서대로 순회
+
+  - section: Message Control
+    items:
+      - shortcut: E
+        description: 메시지 수정 (파란 테두리 선택 모드에서)
+      - shortcut: T
+        description: 스레드 열기/댓글 달기 (파란 테두리 선택 모드에서)
+
+  - section: Input Field
+    items:
+      - shortcut: ↑
+        description: 내가 방금 쓴 마지막 메시지 수정 (입력창 포커스 상태)
+      - shortcut: Esc
+        description: 현재 채널 읽음 처리 후 입력창 밖으로 나감
+
+  - section: Notifications
+    items:
+      - shortcut: Shift+Esc
+        description: 모두 읽음 처리 - 슬랙 전체 알림 배지 삭제
