@@ -1,0 +1,15 @@
+app: Gmail
+shortcuts:
+  - section: Navigation
+    items:
+      - shortcut: X
+        description: 메일 선택/해제 (체크박스 토글)
+      - shortcut: U
+        description: 메일 목록으로 돌아가기
+
+  - section: Actions
+    items:
+      - shortcut: Shift+#
+        description: 메일 삭제 (휴지통으로 이동)
+      - shortcut: V
+        description: 이동 메뉴 열기 (Move to)
