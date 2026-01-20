@@ -6,11 +6,11 @@
 
 | App | Shortcuts | Last Updated |
 |-----|-----------|--------------|
-| [Gmail](./shortcuts/gmail.yaml) | 4 | 2026-01-19 |
+| [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
 | [Slack](./shortcuts/slack.yaml) | 10 | 2026-01-20 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 
-**Total**: 19 shortcuts across 3 apps
+**Total**: 25 shortcuts across 3 apps
 
 ## Quick Reference
 
@@ -18,10 +18,11 @@
 
 | Shortcut | Description |
 |----------|-------------|
-| X | 메일 선택/해제 (체크박스 토글) |
-| U | 메일 목록으로 돌아가기 |
-| Shift+# | 메일 삭제 (휴지통으로 이동) |
-| V | 이동 메뉴 열기 (Move to) |
+| C | 새 메일 작성 |
+| Cmd+Enter | 메일 보내기 |
+| / | 검색창으로 이동 |
+| J / K | 다음/이전 메일로 이동 |
+| R | 답장하기 (Reply) |
 
 [View all Gmail shortcuts →](./shortcuts/gmail.yaml)
 

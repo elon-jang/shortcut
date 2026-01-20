@@ -1,7 +1,20 @@
 app: Gmail
 shortcuts:
+  - section: Compose
+    items:
+      - shortcut: C
+        description: 새 메일 작성
+      - shortcut: Cmd+Enter
+        description: 메일 보내기
+
   - section: Navigation
     items:
+      - shortcut: /
+        description: 검색창으로 이동
+      - shortcut: J
+        description: 다음 메일로 이동 (아래)
+      - shortcut: K
+        description: 이전 메일로 이동 (위)
       - shortcut: X
         description: 메일 선택/해제 (체크박스 토글)
       - shortcut: U
@@ -9,6 +22,8 @@ shortcuts:
 
   - section: Actions
     items:
+      - shortcut: R
+        description: 답장하기 (Reply)
       - shortcut: Shift+#
         description: 메일 삭제 (휴지통으로 이동)
       - shortcut: V
