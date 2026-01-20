@@ -7,10 +7,10 @@
 | App | Shortcuts | Last Updated |
 |-----|-----------|--------------|
 | [Gmail](./shortcuts/gmail.yaml) | 4 | 2026-01-19 |
-| [Slack](./shortcuts/slack.yaml) | 9 | 2026-01-19 |
+| [Slack](./shortcuts/slack.yaml) | 10 | 2026-01-20 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 
-**Total**: 18 shortcuts across 3 apps
+**Total**: 19 shortcuts across 3 apps
 
 ## Quick Reference
 

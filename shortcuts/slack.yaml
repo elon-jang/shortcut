@@ -25,6 +25,11 @@ shortcuts:
       - shortcut: Esc
         description: 현재 채널 읽음 처리 후 입력창 밖으로 나감
 
+  - section: View
+    items:
+      - shortcut: Cmd+Shift+D
+        description: 사이드바 열기/접기 - 채널 리스트를 숨겨서 화면을 넓게 사용
+
   - section: Notifications
     items:
       - shortcut: Shift+Esc
