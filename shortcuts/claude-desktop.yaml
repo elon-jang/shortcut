@@ -1,5 +1,10 @@
 app: Claude Desktop
 shortcuts:
+  - section: Global
+    items:
+      - shortcut: Ctrl+Cmd+K
+        description: Quick chat - 어디서든 Claude 호출 (글로벌)
+
   - section: General
     items:
       - shortcut: Cmd+,
