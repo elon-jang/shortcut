@@ -8,10 +8,11 @@
 |-----|-----------|--------------|
 | [Claude Desktop](./shortcuts/claude-desktop.yaml) | 7 | 2026-01-21 |
 | [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
+| [Safari](./shortcuts/safari.yaml) | 15 | 2026-01-21 |
 | [Slack](./shortcuts/slack.yaml) | 10 | 2026-01-20 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 
-**Total**: 32 shortcuts across 4 apps
+**Total**: 47 shortcuts across 5 apps
 
 ## Quick Reference
 
@@ -38,6 +39,18 @@
 | R | 답장하기 (Reply) |
 
 [View all Gmail shortcuts →](./shortcuts/gmail.yaml)
+
+### Safari
+
+| Shortcut | Description |
+|----------|-------------|
+| Cmd+L | 주소창 포커스 (URL 입력/복사) |
+| Cmd+T | 새 탭 열기 |
+| Cmd+W | 현재 탭 닫기 |
+| Cmd+Shift+T | 마지막으로 닫은 탭 다시 열기 |
+| Cmd+D | 현재 페이지 북마크 추가 |
+
+[View all Safari shortcuts →](./shortcuts/safari.yaml)
 
 ### Slack
 

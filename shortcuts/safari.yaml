@@ -1,0 +1,43 @@
+app: Safari
+shortcuts:
+  - section: URL & Address Bar
+    items:
+      - shortcut: Cmd+L
+        description: 주소창 포커스 (URL 입력/복사)
+      - shortcut: Cmd+Return
+        description: 주소창에서 새 탭으로 열기
+      - shortcut: Cmd+Shift+L
+        description: 사이드바에서 읽기 목록 열기
+
+  - section: Tabs
+    items:
+      - shortcut: Cmd+T
+        description: 새 탭 열기
+      - shortcut: Cmd+W
+        description: 현재 탭 닫기
+      - shortcut: Cmd+Shift+T
+        description: 마지막으로 닫은 탭 다시 열기
+      - shortcut: Cmd+1~9
+        description: 해당 번호 탭으로 이동
+      - shortcut: Ctrl+Tab
+        description: 다음 탭으로 이동
+      - shortcut: Ctrl+Shift+Tab
+        description: 이전 탭으로 이동
+
+  - section: Navigation
+    items:
+      - shortcut: Cmd+[
+        description: 뒤로 가기
+      - shortcut: Cmd+]
+        description: 앞으로 가기
+      - shortcut: Cmd+R
+        description: 새로고침
+      - shortcut: Esc
+        description: 페이지 로딩 중지
+
+  - section: Bookmarks
+    items:
+      - shortcut: Cmd+D
+        description: 현재 페이지 북마크 추가
+      - shortcut: Cmd+Opt+B
+        description: 북마크 관리자 열기
