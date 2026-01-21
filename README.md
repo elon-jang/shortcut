@@ -6,13 +6,26 @@
 
 | App | Shortcuts | Last Updated |
 |-----|-----------|--------------|
+| [Claude Desktop](./shortcuts/claude-desktop.yaml) | 5 | 2026-01-21 |
 | [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
 | [Slack](./shortcuts/slack.yaml) | 10 | 2026-01-20 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 
-**Total**: 25 shortcuts across 3 apps
+**Total**: 30 shortcuts across 4 apps
 
 ## Quick Reference
+
+### Claude Desktop
+
+| Shortcut | Description |
+|----------|-------------|
+| Cmd+, | 설정 열기 |
+| Cmd+K | 새 채팅 시작 |
+| Cmd+. | 사이드바 토글 |
+| Cmd+/ | 명령어 팔레트 |
+| Shift+Enter | 줄바꿈 (전송 없이) |
+
+[View all Claude Desktop shortcuts →](./shortcuts/claude-desktop.yaml)
 
 ### Gmail
 
