@@ -6,6 +6,8 @@ shortcuts:
         description: 설정 열기
       - shortcut: Cmd+K
         description: 새 채팅 시작
+      - shortcut: Shift+Cmd+I
+        description: 시크릿 채팅 (Incognito chat)
       - shortcut: Cmd+.
         description: 사이드바 토글 (히스토리 표시/숨김)
       - shortcut: Cmd+/
