@@ -2,6 +2,8 @@
 
 애플리케이션 단축키 모음입니다.
 
+**[Printable Cheat Sheet (A4)](./cheatsheet.html)** - 인쇄용 단축키 모음
+
 ## Summary
 
 | App | Shortcuts | Last Updated |
