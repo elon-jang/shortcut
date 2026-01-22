@@ -14,8 +14,9 @@
 | [Slack](./shortcuts/slack.yaml) | 11 | 2026-01-22 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 | [Warp](./shortcuts/warp.yaml) | 15 | 2026-01-22 |
+| [Rectangle](./shortcuts/rectangle.yaml) | 14 | 2026-01-22 |
 
-**Total**: 63 shortcuts across 6 apps
+**Total**: 77 shortcuts across 7 apps
 
 ## Quick Reference
 
@@ -90,3 +91,15 @@
 | Cmd+P | 명령어 팔레트 |
 
 [View all Warp shortcuts →](./shortcuts/warp.yaml)
+
+### Rectangle
+
+| Shortcut | Description |
+|----------|-------------|
+| Ctrl+Opt+← | Left Half (왼쪽 절반) |
+| Ctrl+Opt+→ | Right Half (오른쪽 절반) |
+| Ctrl+Opt+Return | Maximize (최대화) |
+| Ctrl+Opt+C | Center (중앙 배치) |
+| Ctrl+Opt+Cmd+→ | Next Display (다음 모니터) |
+
+[View all Rectangle shortcuts →](./shortcuts/rectangle.yaml)

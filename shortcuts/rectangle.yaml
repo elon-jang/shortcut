@@ -1,0 +1,41 @@
+app: Rectangle
+shortcuts:
+  - section: Window Position
+    items:
+      - shortcut: Ctrl+Opt+←
+        description: Left Half (왼쪽 절반)
+      - shortcut: Ctrl+Opt+→
+        description: Right Half (오른쪽 절반)
+      - shortcut: Ctrl+Opt+↑
+        description: Top Half (상단 절반)
+      - shortcut: Ctrl+Opt+↓
+        description: Bottom Half (하단 절반)
+
+  - section: Window Corners
+    items:
+      - shortcut: Ctrl+Opt+U
+        description: Top Left (좌상단)
+      - shortcut: Ctrl+Opt+I
+        description: Top Right (우상단)
+      - shortcut: Ctrl+Opt+J
+        description: Bottom Left (좌하단)
+      - shortcut: Ctrl+Opt+K
+        description: Bottom Right (우하단)
+
+  - section: Window Size
+    items:
+      - shortcut: Ctrl+Opt+Return
+        description: Maximize (최대화)
+      - shortcut: Ctrl+Opt+Shift+↑
+        description: Maximize Height (높이 최대화)
+      - shortcut: Ctrl+Opt+C
+        description: Center (중앙 배치)
+      - shortcut: Ctrl+Opt+⌫
+        description: Restore (원래 크기 복원)
+
+  - section: Multi Display
+    items:
+      - shortcut: Ctrl+Opt+Cmd+→
+        description: Next Display (다음 모니터)
+      - shortcut: Ctrl+Opt+Cmd+←
+        description: Previous Display (이전 모니터)
