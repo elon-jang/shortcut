@@ -11,17 +11,6 @@ shortcuts:
       - shortcut: Ctrl+Opt+↓
         description: Bottom Half (하단 절반)
 
-  - section: Window Corners
-    items:
-      - shortcut: Ctrl+Opt+U
-        description: Top Left (좌상단)
-      - shortcut: Ctrl+Opt+I
-        description: Top Right (우상단)
-      - shortcut: Ctrl+Opt+J
-        description: Bottom Left (좌하단)
-      - shortcut: Ctrl+Opt+K
-        description: Bottom Right (우하단)
-
   - section: Window Size
     items:
       - shortcut: Ctrl+Opt+Return

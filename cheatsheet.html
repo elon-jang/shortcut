@@ -8,6 +8,9 @@
       size: A4;
       margin: 8mm;
     }
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
     * {
       margin: 0;
       padding: 0;
@@ -48,44 +51,36 @@
       border-radius: 5px;
       padding: 5px;
       border: 1px solid #e0e0e0;
+      break-inside: avoid;
     }
     .app-header {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-bottom: 4px;
-      padding-bottom: 3px;
-      border-bottom: 1px solid #ddd;
-    }
-    .app-icon {
       font-size: 11px;
-    }
-    .app-name {
-      font-size: 10px;
       font-weight: 700;
-      color: #333;
+      color: #2c3e50;
+      margin-bottom: 4px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid #ccc;
     }
     .section {
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
-    .section-name {
-      font-size: 6.5px;
+    .section-title {
+      font-size: 8px;
       font-weight: 600;
-      color: #888;
+      color: #666;
+      margin-bottom: 2px;
       text-transform: uppercase;
       letter-spacing: 0.3px;
-      margin-bottom: 2px;
     }
     .shortcut-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2px 0;
-      gap: 6px;
+      padding: 1px 0;
+      gap: 4px;
     }
     .keys {
       display: flex;
-      align-items: center;
       gap: 2px;
       flex-shrink: 0;
     }
@@ -93,112 +88,62 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 9px;
-      font-weight: 500;
-      min-width: 18px;
-      height: 18px;
+      min-width: 16px;
+      height: 14px;
       padding: 0 4px;
-      background: linear-gradient(180deg, #fafafa 0%, #e5e5e5 100%);
+      background: linear-gradient(180deg, #fff 0%, #e8e8e8 100%);
       border: 1px solid #b0b0b0;
       border-radius: 3px;
-      box-shadow: 0 1px 0 #999, inset 0 0 0 1px rgba(255,255,255,0.4);
+      font-size: 8px;
+      font-weight: 600;
       color: #333;
+      box-shadow: 0 1px 0 #999;
     }
     .key.modifier {
-      font-size: 10px;
-      min-width: 16px;
-      padding: 0 3px;
       background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 100%);
+      font-size: 9px;
     }
-    .key.wide {
-      min-width: 28px;
-      font-size: 8px;
+    .key.symbol {
+      font-size: 10px;
     }
     .desc {
+      flex: 1;
       font-size: 8px;
       color: #444;
       text-align: right;
-      flex: 1;
-      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
-
-    /* App Colors */
-    .app[data-app="claude"] .app-header,
-    .app[data-app="claude-desktop"] .app-header { border-color: #d97706; }
-    .app[data-app="claude"] .app-name,
-    .app[data-app="claude-desktop"] .app-name { color: #d97706; }
-
-    .app[data-app="gmail"] .app-header { border-color: #ea4335; }
-    .app[data-app="gmail"] .app-name { color: #ea4335; }
-
-    .app[data-app="safari"] .app-header { border-color: #007aff; }
-    .app[data-app="safari"] .app-name { color: #007aff; }
-
-    .app[data-app="slack"] .app-header { border-color: #4a154b; }
-    .app[data-app="slack"] .app-name { color: #4a154b; }
-
-    .app[data-app="vscode"] .app-header,
-    .app[data-app="vs-code"] .app-header { border-color: #007acc; }
-    .app[data-app="vscode"] .app-name,
-    .app[data-app="vs-code"] .app-name { color: #007acc; }
-
-    .app[data-app="chrome"] .app-header { border-color: #4285f4; }
-    .app[data-app="chrome"] .app-name { color: #4285f4; }
-
-    .app[data-app="figma"] .app-header { border-color: #f24e1e; }
-    .app[data-app="figma"] .app-name { color: #f24e1e; }
-
-    .app[data-app="notion"] .app-header { border-color: #000000; }
-    .app[data-app="notion"] .app-name { color: #000000; }
-
-    .app[data-app="terminal"] .app-header { border-color: #28a745; }
-    .app[data-app="terminal"] .app-name { color: #28a745; }
-
-    .tips {
-      background: #fffbeb;
-      border-color: #f59e0b;
-    }
-    .tips .app-header { border-color: #f59e0b; }
-    .tips .app-name { color: #b45309; }
-
     footer {
+      margin-top: 6px;
+      padding-top: 4px;
+      border-top: 1px solid #ccc;
       text-align: center;
-      margin-top: 4px;
-      padding-top: 3px;
-      border-top: 1px solid #ddd;
       font-size: 7px;
       color: #888;
-    }
-    @media print {
-      body { width: 100%; padding: 0; }
-      .app { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Mac Shortcuts Cheat Sheet</h1>
-    <p>47 shortcuts across 5 apps</p>
+    <p>80 shortcuts across 8 apps • Updated 2026-01-22</p>
   </header>
 
   <div class="container">
-    <div class="app" data-app="claude-desktop">
-      <div class="app-header">
-        <span class="app-icon">🤖</span>
-        <span class="app-name">Claude Desktop</span>
-      </div>
+    <!-- Claude Desktop -->
+    <div class="app">
+      <div class="app-header">Claude Desktop</div>
       <div class="section">
-        <div class="section-name">Global</div>
+        <div class="section-title">Global</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌘</span><span class="key">K</span></div>
-          <span class="desc">Quick chat - 어디서든 Claude 호출 (글로벌)</span>
+          <span class="desc">Quick chat (글로벌 호출)</span>
         </div>
       </div>
       <div class="section">
-        <div class="section-name">General</div>
+        <div class="section-title">General</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">,</span></div>
           <span class="desc">설정 열기</span>
@@ -209,323 +154,437 @@
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">I</span></div>
-          <span class="desc">시크릿 채팅 (Incognito chat)</span>
+          <span class="desc">시크릿 채팅</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">.</span></div>
-          <span class="desc">사이드바 토글 (히스토리 표시/숨김)</span>
+          <span class="desc">사이드바 토글</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">/</span></div>
-          <span class="desc">명령어 팔레트 (전체 단축키 가이드)</span>
+          <span class="desc">명령어 팔레트</span>
         </div>
       </div>
       <div class="section">
-        <div class="section-name">Input</div>
+        <div class="section-title">Input</div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⇧</span><span class="key">↵</span></div>
-          <span class="desc">줄바꿈 (전송하지 않고 다음 줄로)</span>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key">Enter</span></div>
+          <span class="desc">줄바꿈</span>
         </div>
       </div>
     </div>
 
-    <div class="app" data-app="gmail">
-      <div class="app-header">
-        <span class="app-icon">📧</span>
-        <span class="app-name">Gmail</span>
-      </div>
+    <!-- Gmail -->
+    <div class="app">
+      <div class="app-header">Gmail</div>
       <div class="section">
-        <div class="section-name">Compose</div>
+        <div class="section-title">Compose</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">C</span></div>
           <span class="desc">새 메일 작성</span>
         </div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key">↵</span></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">Enter</span></div>
           <span class="desc">메일 보내기</span>
         </div>
       </div>
       <div class="section">
-        <div class="section-name">Navigation</div>
+        <div class="section-title">Navigation</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">/</span></div>
           <span class="desc">검색창으로 이동</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">J</span></div>
-          <span class="desc">다음 메일로 이동 (아래)</span>
+          <span class="desc">다음 메일 (아래)</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">K</span></div>
-          <span class="desc">이전 메일로 이동 (위)</span>
+          <span class="desc">이전 메일 (위)</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">X</span></div>
-          <span class="desc">메일 선택/해제 (체크박스 토글)</span>
+          <span class="desc">메일 선택/해제</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">U</span></div>
-          <span class="desc">메일 목록으로 돌아가기</span>
+          <span class="desc">메일 목록으로</span>
         </div>
       </div>
       <div class="section">
-        <div class="section-name">Actions</div>
+        <div class="section-title">Actions</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">R</span></div>
-          <span class="desc">답장하기 (Reply)</span>
+          <span class="desc">답장하기</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⇧</span><span class="key">#</span></div>
-          <span class="desc">메일 삭제 (휴지통으로 이동)</span>
+          <span class="desc">메일 삭제</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">V</span></div>
-          <span class="desc">이동 메뉴 열기 (Move to)</span>
+          <span class="desc">이동 메뉴</span>
         </div>
       </div>
     </div>
 
-    <div class="app" data-app="safari">
-      <div class="app-header">
-        <span class="app-icon">🧭</span>
-        <span class="app-name">Safari</span>
-      </div>
+    <!-- Safari -->
+    <div class="app">
+      <div class="app-header">Safari</div>
       <div class="section">
-        <div class="section-name">URL & Address Bar</div>
+        <div class="section-title">URL & Address Bar</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">L</span></div>
-          <span class="desc">주소창 포커스 (URL 입력/복사)</span>
+          <span class="desc">주소창 포커스</span>
         </div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key">↵</span></div>
-          <span class="desc">주소창에서 새 탭으로 열기</span>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">Return</span></div>
+          <span class="desc">새 탭으로 열기</span>
         </div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key modifier">⇧</span><span class="key">L</span></div>
-          <span class="desc">사이드바에서 읽기 목록 열기</span>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">L</span></div>
+          <span class="desc">읽기 목록</span>
         </div>
       </div>
       <div class="section">
-        <div class="section-name">Tabs</div>
+        <div class="section-title">Tabs</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">T</span></div>
-          <span class="desc">새 탭 열기</span>
+          <span class="desc">새 탭</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">W</span></div>
-          <span class="desc">현재 탭 닫기</span>
+          <span class="desc">탭 닫기</span>
         </div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key modifier">⇧</span><span class="key">T</span></div>
-          <span class="desc">마지막으로 닫은 탭 다시 열기</span>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">T</span></div>
+          <span class="desc">닫은 탭 복구</span>
         </div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key wide">1~9</span></div>
-          <span class="desc">해당 번호 탭으로 이동</span>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">1~9</span></div>
+          <span class="desc">탭 번호 이동</span>
         </div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌃</span><span class="key wide">Tab</span></div>
-          <span class="desc">다음 탭으로 이동</span>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key">Tab</span></div>
+          <span class="desc">다음 탭</span>
         </div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⇧</span><span class="key wide">Tab</span></div>
-          <span class="desc">이전 탭으로 이동</span>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⇧</span><span class="key">Tab</span></div>
+          <span class="desc">이전 탭</span>
         </div>
       </div>
       <div class="section">
-        <div class="section-name">Navigation</div>
+        <div class="section-title">Navigation</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">[</span></div>
-          <span class="desc">뒤로 가기</span>
+          <span class="desc">뒤로</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">]</span></div>
-          <span class="desc">앞으로 가기</span>
+          <span class="desc">앞으로</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">R</span></div>
           <span class="desc">새로고침</span>
         </div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key wide">Esc</span></div>
-          <span class="desc">페이지 로딩 중지</span>
+          <div class="keys"><span class="key">Esc</span></div>
+          <span class="desc">로딩 중지</span>
         </div>
       </div>
       <div class="section">
-        <div class="section-name">Bookmarks</div>
+        <div class="section-title">Bookmarks</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">D</span></div>
-          <span class="desc">현재 페이지 북마크 추가</span>
+          <span class="desc">북마크 추가</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key modifier">⌥</span><span class="key">B</span></div>
-          <span class="desc">북마크 관리자 열기</span>
+          <span class="desc">북마크 관리자</span>
         </div>
       </div>
     </div>
 
-    <div class="app" data-app="slack">
-      <div class="app-header">
-        <span class="app-icon">💬</span>
-        <span class="app-name">Slack</span>
+    <!-- Slack -->
+    <div class="app">
+      <div class="app-header">Slack</div>
+      <div class="section">
+        <div class="section-title">Search</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">G</span></div>
+          <span class="desc">검색</span>
+        </div>
       </div>
       <div class="section">
-        <div class="section-name">Navigation</div>
+        <div class="section-title">Navigation</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">K</span></div>
-          <span class="desc">퀵 스위처 - 채널/동료 이름 검색해서 바로 이동</span>
+          <span class="desc">퀵 스위처</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">[</span></div>
-          <span class="desc">뒤로 가기 - 방금 봤던 이전 채널로 복귀</span>
+          <span class="desc">뒤로 가기</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌥</span><span class="key modifier">⇧</span><span class="key">↓</span></div>
-          <span class="desc">안 읽은 메시지 순서대로 순회</span>
+          <span class="desc">안 읽은 메시지 순회</span>
         </div>
       </div>
       <div class="section">
-        <div class="section-name">Message Control</div>
+        <div class="section-title">Message Control</div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">E</span></div>
-          <span class="desc">메시지 수정 (파란 테두리 선택 모드에서)</span>
+          <span class="desc">메시지 수정</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">T</span></div>
-          <span class="desc">스레드 열기/댓글 달기 (파란 테두리 선택 모드에서)</span>
-        </div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key">⌫</span><span class="key">(⌫)</span></div>
-          <span class="desc">메시지 삭제 (파란 테두리 선택 모드에서)</span>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-name">Input Field</div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key">↑</span></div>
-          <span class="desc">내가 방금 쓴 마지막 메시지 수정 (입력창 포커스 상태)</span>
-        </div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key wide">Esc</span></div>
-          <span class="desc">현재 채널 읽음 처리 후 입력창 밖으로 나감</span>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-name">View</div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key modifier">⇧</span><span class="key">D</span></div>
-          <span class="desc">사이드바 열기/접기 - 채널 리스트를 숨겨서 화면을 넓게 사용</span>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-name">Notifications</div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⇧</span><span class="key wide">Esc</span></div>
-          <span class="desc">모두 읽음 처리 - 슬랙 전체 알림 배지 삭제</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="app" data-app="vs-code">
-      <div class="app-header">
-        <span class="app-icon">📝</span>
-        <span class="app-name">VS Code</span>
-      </div>
-      <div class="section">
-        <div class="section-name">Command</div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key modifier">⇧</span><span class="key">P</span></div>
-          <span class="desc">명령어 팔레트 열기 (모든 기능 검색/실행)</span>
-        </div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key">P</span></div>
-          <span class="desc">파일 빠르게 열기 (Quick Open)</span>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-name">Editing</div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key">D</span></div>
-          <span class="desc">같은 단어 다중 선택 (Multi-Cursor)</span>
-        </div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌥</span><span class="key">↑/↓</span></div>
-          <span class="desc">코드 줄 위/아래로 이동</span>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-name">View</div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌃</span><span class="key">`</span></div>
-          <span class="desc">터미널 열기/닫기</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick Reference -->
-    <div class="app tips">
-      <div class="app-header">
-        <span class="app-icon">💡</span>
-        <span class="app-name">Quick Reference</span>
-      </div>
-      <div class="section">
-        <div class="section-name">Modifier Keys</div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span></div>
-          <span class="desc">Command</span>
-        </div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌥</span></div>
-          <span class="desc">Option (Alt)</span>
-        </div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌃</span></div>
-          <span class="desc">Control</span>
-        </div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⇧</span></div>
-          <span class="desc">Shift</span>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-name">Common Keys</div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key">↵</span></div>
-          <span class="desc">Enter / Return</span>
+          <span class="desc">스레드 열기</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key">⌫</span></div>
-          <span class="desc">Delete (Backspace)</span>
-        </div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key wide">Esc</span></div>
-          <span class="desc">Escape</span>
-        </div>
-        <div class="shortcut-row">
-          <div class="keys"><span class="key wide">Tab</span></div>
-          <span class="desc">Tab</span>
+          <span class="desc">메시지 삭제</span>
         </div>
       </div>
       <div class="section">
-        <div class="section-name">Common Patterns</div>
+        <div class="section-title">Input Field</div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key modifier">⌘</span><span class="key">K</span></div>
-          <span class="desc">Quick Action / Search</span>
+          <div class="keys"><span class="key">↑</span></div>
+          <span class="desc">마지막 메시지 수정</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key">Esc</span></div>
+          <span class="desc">읽음 처리</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">View</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key modifier">⇧</span><span class="key">D</span></div>
+          <span class="desc">사이드바 토글</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Notifications</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key">Esc</span></div>
+          <span class="desc">모두 읽음 처리</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VS Code -->
+    <div class="app">
+      <div class="app-header">VS Code</div>
+      <div class="section">
+        <div class="section-title">Command</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">P</span></div>
+          <span class="desc">명령어 팔레트</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">P</span></div>
+          <span class="desc">파일 빠르게 열기</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Editing</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">D</span></div>
+          <span class="desc">같은 단어 다중 선택</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌥</span><span class="key">↑/↓</span></div>
+          <span class="desc">줄 이동</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">View</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key">`</span></div>
+          <span class="desc">터미널 토글</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Warp -->
+    <div class="app">
+      <div class="app-header">Warp</div>
+      <div class="section">
+        <div class="section-title">AI</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key">`</span></div>
+          <span class="desc">AI 명령어 생성</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Editing</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">C</span></div>
+          <span class="desc">블록 복사</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">↑</span></div>
+          <span class="desc">이전 블록</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">↓</span></div>
+          <span class="desc">다음 블록</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Navigation</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key">Tab</span></div>
+          <span class="desc">다음 탭</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⇧</span><span class="key">Tab</span></div>
+          <span class="desc">이전 탭</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">1~9</span></div>
+          <span class="desc">탭 이동</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">D</span></div>
+          <span class="desc">우측 분할</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">D</span></div>
+          <span class="desc">하단 분할</span>
         </div>
         <div class="shortcut-row">
           <div class="keys"><span class="key modifier">⌘</span><span class="key">[</span></div>
-          <span class="desc">Go Back</span>
+          <span class="desc">이전 Pane</span>
         </div>
         <div class="shortcut-row">
-          <div class="keys"><span class="key">J</span><span class="key">K</span></div>
-          <span class="desc">Vim-style Navigation</span>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">]</span></div>
+          <span class="desc">다음 Pane</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">P</span></div>
+          <span class="desc">명령어 팔레트</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Workflow</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌥</span><span class="key">R</span></div>
+          <span class="desc">워크플로우 검색</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">\</span></div>
+          <span class="desc">Warp Drive</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Settings</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌘</span><span class="key">L</span></div>
+          <span class="desc">런치 설정 복원</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rectangle -->
+    <div class="app">
+      <div class="app-header">Rectangle</div>
+      <div class="section">
+        <div class="section-title">Window Position</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">←</span></div>
+          <span class="desc">Left Half</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">→</span></div>
+          <span class="desc">Right Half</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">↑</span></div>
+          <span class="desc">Top Half</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">↓</span></div>
+          <span class="desc">Bottom Half</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Window Size</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">↩</span></div>
+          <span class="desc">Maximize</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key modifier">⇧</span><span class="key">↑</span></div>
+          <span class="desc">Maximize Height</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">C</span></div>
+          <span class="desc">Center</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">⌫</span></div>
+          <span class="desc">Restore</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Multi Display</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key modifier">⌘</span><span class="key">→</span></div>
+          <span class="desc">Next Display</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key modifier">⌘</span><span class="key">←</span></div>
+          <span class="desc">Previous Display</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shottr -->
+    <div class="app">
+      <div class="app-header">Shottr</div>
+      <div class="section">
+        <div class="section-title">Screenshot</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">1</span></div>
+          <span class="desc">Fullscreen</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">2</span></div>
+          <span class="desc">Area</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">7</span></div>
+          <span class="desc">Any Window</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">8</span></div>
+          <span class="desc">Active Window</span>
+        </div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">9</span></div>
+          <span class="desc">Scrolling</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">App</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">0</span></div>
+          <span class="desc">Show Shottr</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">OCR</div>
+        <div class="shortcut-row">
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key modifier">⌘</span><span class="key">O</span></div>
+          <span class="desc">Text/QR Recognition</span>
         </div>
       </div>
     </div>
   </div>
 
   <footer>
-    Last updated: 2026-01-22 | Generated by Shortcut Master
+    ⌘ Command &nbsp;|&nbsp; ⌃ Control &nbsp;|&nbsp; ⌥ Option &nbsp;|&nbsp; ⇧ Shift &nbsp;|&nbsp; Print: Cmd+P → Save as PDF
   </footer>
 </body>
 </html>

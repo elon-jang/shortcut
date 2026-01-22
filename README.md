@@ -14,10 +14,10 @@
 | [Slack](./shortcuts/slack.yaml) | 11 | 2026-01-22 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 | [Warp](./shortcuts/warp.yaml) | 15 | 2026-01-22 |
-| [Rectangle](./shortcuts/rectangle.yaml) | 14 | 2026-01-22 |
+| [Rectangle](./shortcuts/rectangle.yaml) | 10 | 2026-01-22 |
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 
-**Total**: 84 shortcuts across 8 apps
+**Total**: 80 shortcuts across 8 apps
 
 ## Quick Reference
 
