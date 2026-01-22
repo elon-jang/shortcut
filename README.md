@@ -13,8 +13,9 @@
 | [Safari](./shortcuts/safari.yaml) | 15 | 2026-01-21 |
 | [Slack](./shortcuts/slack.yaml) | 10 | 2026-01-20 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
+| [Warp](./shortcuts/warp.yaml) | 15 | 2026-01-22 |
 
-**Total**: 47 shortcuts across 5 apps
+**Total**: 62 shortcuts across 6 apps
 
 ## Quick Reference
 
@@ -77,3 +78,15 @@
 | Ctrl+` | 터미널 열기/닫기 |
 
 [View all VS Code shortcuts →](./shortcuts/vscode.yaml)
+
+### Warp
+
+| Shortcut | Description |
+|----------|-------------|
+| Ctrl+` | AI 명령어 생성 (Generate) |
+| Ctrl+Tab | 다음 탭 |
+| Ctrl+Shift+Tab | 이전 탭 |
+| Cmd+D | 우측 분할 (Split Right) |
+| Cmd+P | 명령어 팔레트 |
+
+[View all Warp shortcuts →](./shortcuts/warp.yaml)

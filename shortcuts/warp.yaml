@@ -1,0 +1,46 @@
+app: Warp
+shortcuts:
+  - section: AI
+    items:
+      - shortcut: Ctrl+`
+        description: AI 명령어 생성 (Generate)
+
+  - section: Editing
+    items:
+      - shortcut: Cmd+C
+        description: 블록 복사 (명령어+출력)
+      - shortcut: Cmd+↑
+        description: 이전 블록 선택
+      - shortcut: Cmd+↓
+        description: 다음 블록 선택
+
+  - section: Navigation
+    items:
+      - shortcut: Ctrl+Tab
+        description: 다음 탭
+      - shortcut: Ctrl+Shift+Tab
+        description: 이전 탭
+      - shortcut: Cmd+1~9
+        description: 특정 탭으로 바로 이동
+      - shortcut: Cmd+D
+        description: 우측 분할 (Split Right)
+      - shortcut: Cmd+Shift+D
+        description: 하단 분할 (Split Bottom)
+      - shortcut: Cmd+[
+        description: 이전 창(Pane) 이동
+      - shortcut: Cmd+]
+        description: 다음 창(Pane) 이동
+      - shortcut: Cmd+P
+        description: 명령어 팔레트
+
+  - section: Workflow
+    items:
+      - shortcut: Shift+Opt+R
+        description: 워크플로우 검색 및 실행 (커스텀)
+      - shortcut: Cmd+\
+        description: Warp Drive 관리 패널
+
+  - section: Settings
+    items:
+      - shortcut: Ctrl+Cmd+L
+        description: 런치 설정 복원
