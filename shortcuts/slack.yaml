@@ -1,5 +1,10 @@
 app: Slack
 shortcuts:
+  - section: Search
+    items:
+      - shortcut: Cmd+G
+        description: 검색 (Search)
+
   - section: Navigation
     items:
       - shortcut: Cmd+K

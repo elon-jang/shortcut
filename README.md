@@ -11,11 +11,11 @@
 | [Claude Desktop](./shortcuts/claude-desktop.yaml) | 7 | 2026-01-21 |
 | [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
 | [Safari](./shortcuts/safari.yaml) | 15 | 2026-01-21 |
-| [Slack](./shortcuts/slack.yaml) | 10 | 2026-01-20 |
+| [Slack](./shortcuts/slack.yaml) | 11 | 2026-01-22 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 | [Warp](./shortcuts/warp.yaml) | 15 | 2026-01-22 |
 
-**Total**: 62 shortcuts across 6 apps
+**Total**: 63 shortcuts across 6 apps
 
 ## Quick Reference
 
