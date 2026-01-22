@@ -15,8 +15,9 @@
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 | [Warp](./shortcuts/warp.yaml) | 15 | 2026-01-22 |
 | [Rectangle](./shortcuts/rectangle.yaml) | 14 | 2026-01-22 |
+| [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 
-**Total**: 77 shortcuts across 7 apps
+**Total**: 84 shortcuts across 8 apps
 
 ## Quick Reference
 
@@ -103,3 +104,15 @@
 | Ctrl+Opt+Cmd+→ | Next Display (다음 모니터) |
 
 [View all Rectangle shortcuts →](./shortcuts/rectangle.yaml)
+
+### Shottr
+
+| Shortcut | Description |
+|----------|-------------|
+| Shift+Cmd+1 | Fullscreen screenshot (전체 화면) |
+| Shift+Cmd+2 | Area screenshot (영역 선택) |
+| Shift+Cmd+7 | Any window screenshot (윈도우 선택) |
+| Shift+Cmd+8 | Active window screenshot (활성 윈도우) |
+| Shift+Cmd+9 | Scrolling screenshot (스크롤 캡처) |
+
+[View all Shottr shortcuts →](./shortcuts/shottr.yaml)

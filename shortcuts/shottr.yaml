@@ -1,0 +1,24 @@
+app: Shottr
+shortcuts:
+  - section: Screenshot
+    items:
+      - shortcut: Shift+Cmd+1
+        description: Fullscreen screenshot (전체 화면)
+      - shortcut: Shift+Cmd+2
+        description: Area screenshot (영역 선택)
+      - shortcut: Shift+Cmd+7
+        description: Any window screenshot (윈도우 선택)
+      - shortcut: Shift+Cmd+8
+        description: Active window screenshot (활성 윈도우)
+      - shortcut: Shift+Cmd+9
+        description: Scrolling screenshot (스크롤 캡처)
+
+  - section: App
+    items:
+      - shortcut: Shift+Cmd+0
+        description: Show Shottr (앱 표시)
+
+  - section: OCR
+    items:
+      - shortcut: Ctrl+Opt+Cmd+O
+        description: Instant Text/QR Recognition (텍스트/QR 인식)
