@@ -4,6 +4,14 @@
 
 **[Printable Cheat Sheet (A4)](./cheatsheet.html)** - 인쇄용 단축키 모음
 
+**[Interactive Checklist](./cheatsheet-checklist.html)** - 학습용 체크리스트 + 암기 팁 + 패턴 분석
+
+## Future Improvements
+
+- [ ] `/shortcut:shortcut-learn` 스킬에서 체크리스트 진행률 연동
+- [ ] 브라우저 localStorage 대신 `learning_progress.yaml`에 진행률 저장
+- [ ] 다크모드 지원 (시스템 설정 자동 감지)
+
 ## Summary
 
 | App | Shortcuts | Last Updated |
