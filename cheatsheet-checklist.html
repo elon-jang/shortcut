@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Mac Shortcuts Cheat Sheet - Checklist</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 8mm;
+    }
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 9px;
+      line-height: 1.3;
+      color: #1a1a1a;
+      background: white;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 6mm;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 5px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #333;
+    }
+    header h1 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 8px;
+      color: #666;
+      margin-top: 2px;
+    }
+    .progress-bar {
+      margin-top: 4px;
+      background: #e0e0e0;
+      border-radius: 3px;
+      height: 6px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      background: linear-gradient(90deg, #4CAF50, #8BC34A);
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+    .progress-text {
+      font-size: 8px;
+      color: #666;
+      margin-top: 2px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .app {
+      background: #f8f9fa;
+      border-radius: 5px;
+      padding: 5px;
+      border: 1px solid #e0e0e0;
+      break-inside: avoid;
+    }
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 4px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid #ccc;
+    }
+    .app-progress {
+      font-size: 8px;
+      font-weight: 400;
+      color: #888;
+    }
+    .section {
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-size: 8px;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .shortcut-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1px 0;
+      gap: 4px;
+    }
+    .shortcut-row.checked {
+      opacity: 0.5;
+    }
+    .shortcut-row.checked .desc {
+      text-decoration: line-through;
+    }
+    .checkbox {
+      width: 10px;
+      height: 10px;
+      border: 1px solid #999;
+      border-radius: 2px;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      background: white;
+    }
+    .checkbox.checked {
+      background: #4CAF50;
+      border-color: #4CAF50;
+      color: white;
+    }
+    .keys {
+      display: flex;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      height: 14px;
+      padding: 0 4px;
+      background: linear-gradient(180deg, #fff 0%, #e8e8e8 100%);
+      border: 1px solid #b0b0b0;
+      border-radius: 3px;
+      font-size: 8px;
+      font-weight: 600;
+      color: #333;
+      box-shadow: 0 1px 0 #999;
+    }
+    .key.modifier {
+      background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 100%);
+      font-size: 9px;
+    }
+    .key.symbol {
+      font-size: 10px;
+    }
+    .desc {
+      flex: 1;
+      font-size: 8px;
+      color: #444;
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    footer {
+      margin-top: 6px;
+      padding-top: 4px;
+      border-top: 1px solid #ccc;
+      text-align: center;
+      font-size: 7px;
+      color: #888;
+    }
+    .controls {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 8px;
+      z-index: 100;
+    }
+    .controls button {
+      padding: 6px 12px;
+      font-size: 11px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+    }
+    .controls button:hover {
+      background: #f0f0f0;
+    }
+    /* Tips Section */
+    .tips-section {
+      margin-top: 20px;
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 10px;
+      color: white;
+    }
+    .tips-section h2 {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .tip-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 8px;
+      padding: 10px;
+      color: #333;
+      position: relative;
+    }
+    .tip-number {
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      width: 20px;
+      height: 20px;
+      background: #ff6b6b;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .tip-content strong {
+      display: block;
+      font-size: 10px;
+      color: #2c3e50;
+      margin-bottom: 6px;
+    }
+    .tip-content p {
+      font-size: 8px;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    .tip-content ul, .tip-content ol {
+      font-size: 8px;
+      color: #555;
+      margin-left: 12px;
+    }
+    .tip-content li {
+      margin-bottom: 2px;
+    }
+    .tip-content kbd {
+      background: #e8e8e8;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 1px 4px;
+      font-size: 7px;
+      font-family: -apple-system, monospace;
+    }
+    .tip-note {
+      background: #fff3cd;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #856404 !important;
+      margin-top: 4px;
+    }
+    /* Pattern Analysis Section */
+    .pattern-section {
+      margin-top: 15px;
+      padding: 12px;
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      border-radius: 10px;
+      color: white;
+    }
+    .pattern-section h2 {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .pattern-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 8px;
+      padding: 8px;
+      color: #333;
+    }
+    .pattern-card h3 {
+      font-size: 10px;
+      color: #11998e;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 3px;
+    }
+    .pattern-table {
+      width: 100%;
+      font-size: 8px;
+      border-collapse: collapse;
+    }
+    .pattern-table th {
+      text-align: left;
+      color: #666;
+      font-weight: 600;
+      padding: 2px 4px;
+      background: #f5f5f5;
+    }
+    .pattern-table td {
+      padding: 2px 4px;
+      border-bottom: 1px solid #eee;
+    }
+    .pattern-table kbd {
+      background: #e8e8e8;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 1px 3px;
+      font-size: 7px;
+      font-family: -apple-system, monospace;
+    }
+    .pattern-card.wide {
+      grid-column: span 2;
+    }
+    .mnemonic-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      font-size: 8px;
+    }
+    .mnemonic-item {
+      background: #f8f9fa;
+      padding: 3px 5px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .mnemonic-item kbd {
+      display: block;
+      font-size: 9px;
+      margin-bottom: 2px;
+    }
+    .pattern-summary {
+      background: rgba(0,0,0,0.1);
+      border-radius: 6px;
+      padding: 8px;
+      margin-top: 8px;
+      color: white;
+    }
+    .pattern-summary h3 {
+      font-size: 10px;
+      margin-bottom: 6px;
+    }
+    .pattern-summary ul {
+      font-size: 9px;
+      margin-left: 15px;
+    }
+    .pattern-summary li {
+      margin-bottom: 3px;
+    }
+    .pattern-summary kbd {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls no-print">
+    <button onclick="resetAll()">Reset All</button>
+    <button onclick="window.print()">Print</button>
+  </div>
+
+  <header>
+    <h1>Mac Shortcuts Cheat Sheet</h1>
+    <p>80 shortcuts across 8 apps • Updated 2026-01-22</p>
+    <div class="progress-bar"><div class="progress-fill" id="totalProgress"></div></div>
+    <div class="progress-text"><span id="checkedCount">0</span> / 80 learned</div>
+  </header>
+
+  <div class="container">
+    <!-- Claude Desktop -->
+    <div class="app" data-app="claude-desktop">
+      <div class="app-header">Claude Desktop <span class="app-progress"></span></div>
+      <div class="section">
+        <div class="section-title">Global</div>
+        <div class="shortcut-row" data-id="claude-1">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌘</span><span class="key">K</span></div>
+          <span class="desc">Quick chat (글로벌 호출)</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">General</div>
+        <div class="shortcut-row" data-id="claude-2">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">,</span></div>
+          <span class="desc">설정 열기</span>
+        </div>
+        <div class="shortcut-row" data-id="claude-3">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">K</span></div>
+          <span class="desc">새 채팅 시작</span>
+        </div>
+        <div class="shortcut-row" data-id="claude-4">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">I</span></div>
+          <span class="desc">시크릿 채팅</span>
+        </div>
+        <div class="shortcut-row" data-id="claude-5">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">.</span></div>
+          <span class="desc">사이드바 토글</span>
+        </div>
+        <div class="shortcut-row" data-id="claude-6">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">/</span></div>
+          <span class="desc">명령어 팔레트</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Input</div>
+        <div class="shortcut-row" data-id="claude-7">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key">Enter</span></div>
+          <span class="desc">줄바꿈</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gmail -->
+    <div class="app" data-app="gmail">
+      <div class="app-header">Gmail <span class="app-progress"></span></div>
+      <div class="section">
+        <div class="section-title">Compose</div>
+        <div class="shortcut-row" data-id="gmail-1">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">C</span></div>
+          <span class="desc">새 메일 작성</span>
+        </div>
+        <div class="shortcut-row" data-id="gmail-2">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">Enter</span></div>
+          <span class="desc">메일 보내기</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Navigation</div>
+        <div class="shortcut-row" data-id="gmail-3">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">/</span></div>
+          <span class="desc">검색창으로 이동</span>
+        </div>
+        <div class="shortcut-row" data-id="gmail-4">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">J</span></div>
+          <span class="desc">다음 메일 (아래)</span>
+        </div>
+        <div class="shortcut-row" data-id="gmail-5">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">K</span></div>
+          <span class="desc">이전 메일 (위)</span>
+        </div>
+        <div class="shortcut-row" data-id="gmail-6">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">X</span></div>
+          <span class="desc">메일 선택/해제</span>
+        </div>
+        <div class="shortcut-row" data-id="gmail-7">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">U</span></div>
+          <span class="desc">메일 목록으로</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Actions</div>
+        <div class="shortcut-row" data-id="gmail-8">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">R</span></div>
+          <span class="desc">답장하기</span>
+        </div>
+        <div class="shortcut-row" data-id="gmail-9">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key">#</span></div>
+          <span class="desc">메일 삭제</span>
+        </div>
+        <div class="shortcut-row" data-id="gmail-10">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">V</span></div>
+          <span class="desc">이동 메뉴</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Safari -->
+    <div class="app" data-app="safari">
+      <div class="app-header">Safari <span class="app-progress"></span></div>
+      <div class="section">
+        <div class="section-title">URL & Address Bar</div>
+        <div class="shortcut-row" data-id="safari-1">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">L</span></div>
+          <span class="desc">주소창 포커스</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-2">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">Return</span></div>
+          <span class="desc">새 탭으로 열기</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-3">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">L</span></div>
+          <span class="desc">읽기 목록</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Tabs</div>
+        <div class="shortcut-row" data-id="safari-4">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">T</span></div>
+          <span class="desc">새 탭</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-5">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">W</span></div>
+          <span class="desc">탭 닫기</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-6">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">T</span></div>
+          <span class="desc">닫은 탭 복구</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-7">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">1~9</span></div>
+          <span class="desc">탭 번호 이동</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-8">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key">Tab</span></div>
+          <span class="desc">다음 탭</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-9">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⇧</span><span class="key">Tab</span></div>
+          <span class="desc">이전 탭</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Navigation</div>
+        <div class="shortcut-row" data-id="safari-10">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">[</span></div>
+          <span class="desc">뒤로</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-11">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">]</span></div>
+          <span class="desc">앞으로</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-12">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">R</span></div>
+          <span class="desc">새로고침</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-13">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">Esc</span></div>
+          <span class="desc">로딩 중지</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Bookmarks</div>
+        <div class="shortcut-row" data-id="safari-14">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">D</span></div>
+          <span class="desc">북마크 추가</span>
+        </div>
+        <div class="shortcut-row" data-id="safari-15">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key modifier">⌥</span><span class="key">B</span></div>
+          <span class="desc">북마크 관리자</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slack -->
+    <div class="app" data-app="slack">
+      <div class="app-header">Slack <span class="app-progress"></span></div>
+      <div class="section">
+        <div class="section-title">Search</div>
+        <div class="shortcut-row" data-id="slack-1">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">G</span></div>
+          <span class="desc">검색</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Navigation</div>
+        <div class="shortcut-row" data-id="slack-2">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">K</span></div>
+          <span class="desc">퀵 스위처</span>
+        </div>
+        <div class="shortcut-row" data-id="slack-3">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">[</span></div>
+          <span class="desc">뒤로 가기</span>
+        </div>
+        <div class="shortcut-row" data-id="slack-4">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌥</span><span class="key modifier">⇧</span><span class="key">↓</span></div>
+          <span class="desc">안 읽은 메시지 순회</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Message Control</div>
+        <div class="shortcut-row" data-id="slack-5">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">E</span></div>
+          <span class="desc">메시지 수정</span>
+        </div>
+        <div class="shortcut-row" data-id="slack-6">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">T</span></div>
+          <span class="desc">스레드 열기</span>
+        </div>
+        <div class="shortcut-row" data-id="slack-7">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">⌫</span></div>
+          <span class="desc">메시지 삭제</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Input Field</div>
+        <div class="shortcut-row" data-id="slack-8">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">↑</span></div>
+          <span class="desc">마지막 메시지 수정</span>
+        </div>
+        <div class="shortcut-row" data-id="slack-9">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key">Esc</span></div>
+          <span class="desc">읽음 처리</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">View</div>
+        <div class="shortcut-row" data-id="slack-10">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key modifier">⇧</span><span class="key">D</span></div>
+          <span class="desc">사이드바 토글</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Notifications</div>
+        <div class="shortcut-row" data-id="slack-11">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key">Esc</span></div>
+          <span class="desc">모두 읽음 처리</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VS Code -->
+    <div class="app" data-app="vscode">
+      <div class="app-header">VS Code <span class="app-progress"></span></div>
+      <div class="section">
+        <div class="section-title">Command</div>
+        <div class="shortcut-row" data-id="vscode-1">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">P</span></div>
+          <span class="desc">명령어 팔레트</span>
+        </div>
+        <div class="shortcut-row" data-id="vscode-2">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">P</span></div>
+          <span class="desc">파일 빠르게 열기</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Editing</div>
+        <div class="shortcut-row" data-id="vscode-3">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">D</span></div>
+          <span class="desc">같은 단어 다중 선택</span>
+        </div>
+        <div class="shortcut-row" data-id="vscode-4">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌥</span><span class="key">↑/↓</span></div>
+          <span class="desc">줄 이동</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">View</div>
+        <div class="shortcut-row" data-id="vscode-5">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key">`</span></div>
+          <span class="desc">터미널 토글</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Warp -->
+    <div class="app" data-app="warp">
+      <div class="app-header">Warp <span class="app-progress"></span></div>
+      <div class="section">
+        <div class="section-title">AI</div>
+        <div class="shortcut-row" data-id="warp-1">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key">`</span></div>
+          <span class="desc">AI 명령어 생성</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Editing</div>
+        <div class="shortcut-row" data-id="warp-2">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">C</span></div>
+          <span class="desc">블록 복사</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-3">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">↑</span></div>
+          <span class="desc">이전 블록</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-4">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">↓</span></div>
+          <span class="desc">다음 블록</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Navigation</div>
+        <div class="shortcut-row" data-id="warp-5">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key">Tab</span></div>
+          <span class="desc">다음 탭</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-6">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⇧</span><span class="key">Tab</span></div>
+          <span class="desc">이전 탭</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-7">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">1~9</span></div>
+          <span class="desc">탭 이동</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-8">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">D</span></div>
+          <span class="desc">우측 분할</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-9">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">D</span></div>
+          <span class="desc">하단 분할</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-10">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">[</span></div>
+          <span class="desc">이전 Pane</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-11">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">]</span></div>
+          <span class="desc">다음 Pane</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-12">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">P</span></div>
+          <span class="desc">명령어 팔레트</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Workflow</div>
+        <div class="shortcut-row" data-id="warp-13">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌥</span><span class="key">R</span></div>
+          <span class="desc">워크플로우 검색</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-14">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌘</span><span class="key">\</span></div>
+          <span class="desc">Warp Drive</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Settings</div>
+        <div class="shortcut-row" data-id="warp-15">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌘</span><span class="key">L</span></div>
+          <span class="desc">런치 설정 복원</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rectangle -->
+    <div class="app" data-app="rectangle">
+      <div class="app-header">Rectangle <span class="app-progress"></span></div>
+      <div class="section">
+        <div class="section-title">Window Position</div>
+        <div class="shortcut-row" data-id="rect-1">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">←</span></div>
+          <span class="desc">Left Half</span>
+        </div>
+        <div class="shortcut-row" data-id="rect-2">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">→</span></div>
+          <span class="desc">Right Half</span>
+        </div>
+        <div class="shortcut-row" data-id="rect-3">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">↑</span></div>
+          <span class="desc">Top Half</span>
+        </div>
+        <div class="shortcut-row" data-id="rect-4">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">↓</span></div>
+          <span class="desc">Bottom Half</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Window Size</div>
+        <div class="shortcut-row" data-id="rect-5">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">↩</span></div>
+          <span class="desc">Maximize</span>
+        </div>
+        <div class="shortcut-row" data-id="rect-6">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key modifier">⇧</span><span class="key">↑</span></div>
+          <span class="desc">Maximize Height</span>
+        </div>
+        <div class="shortcut-row" data-id="rect-7">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">C</span></div>
+          <span class="desc">Center</span>
+        </div>
+        <div class="shortcut-row" data-id="rect-8">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key">⌫</span></div>
+          <span class="desc">Restore</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Multi Display</div>
+        <div class="shortcut-row" data-id="rect-9">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key modifier">⌘</span><span class="key">→</span></div>
+          <span class="desc">Next Display</span>
+        </div>
+        <div class="shortcut-row" data-id="rect-10">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key modifier">⌘</span><span class="key">←</span></div>
+          <span class="desc">Previous Display</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shottr -->
+    <div class="app" data-app="shottr">
+      <div class="app-header">Shottr <span class="app-progress"></span></div>
+      <div class="section">
+        <div class="section-title">Screenshot</div>
+        <div class="shortcut-row" data-id="shottr-1">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">1</span></div>
+          <span class="desc">Fullscreen</span>
+        </div>
+        <div class="shortcut-row" data-id="shottr-2">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">2</span></div>
+          <span class="desc">Area</span>
+        </div>
+        <div class="shortcut-row" data-id="shottr-3">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">7</span></div>
+          <span class="desc">Any Window</span>
+        </div>
+        <div class="shortcut-row" data-id="shottr-4">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">8</span></div>
+          <span class="desc">Active Window</span>
+        </div>
+        <div class="shortcut-row" data-id="shottr-5">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">9</span></div>
+          <span class="desc">Scrolling</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">App</div>
+        <div class="shortcut-row" data-id="shottr-6">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">0</span></div>
+          <span class="desc">Show Shottr</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">OCR</div>
+        <div class="shortcut-row" data-id="shottr-7">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⌃</span><span class="key modifier">⌥</span><span class="key modifier">⌘</span><span class="key">O</span></div>
+          <span class="desc">Text/QR Recognition</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tips-section no-print">
+    <h2>Shortcut Memorization Tips</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-number">1</div>
+        <div class="tip-content">
+          <strong>연상 기억법 (Mnemonics)</strong>
+          <p>키와 기능을 연결하세요:</p>
+          <ul>
+            <li><kbd>⌘K</kbd> = <b>K</b>ick off new chat</li>
+            <li><kbd>⌘L</kbd> = <b>L</b>ocation bar (주소창)</li>
+            <li><kbd>⌘D</kbd> = a<b>D</b>d bookmark / <b>D</b>uplicate selection</li>
+            <li><kbd>⌘R</kbd> = <b>R</b>efresh / <b>R</b>eload</li>
+            <li><kbd>⌘W</kbd> = close <b>W</b>indow/tab</li>
+            <li><kbd>⌘T</kbd> = new <b>T</b>ab</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">2</div>
+        <div class="tip-content">
+          <strong>Modifier 패턴 이해하기</strong>
+          <p>수식 키의 일관된 의미:</p>
+          <ul>
+            <li><kbd>⌘</kbd> = 기본 동작</li>
+            <li><kbd>⇧⌘</kbd> = 반대/확장 동작 (예: Undo↔Redo)</li>
+            <li><kbd>⌥</kbd> = 대체/고급 옵션</li>
+            <li><kbd>⌃</kbd> = 시스템/터미널 레벨</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">3</div>
+        <div class="tip-content">
+          <strong>그룹으로 학습하기</strong>
+          <p>비슷한 단축키를 묶어서 암기:</p>
+          <ul>
+            <li><b>탭 이동:</b> ⌃Tab (다음) / ⌃⇧Tab (이전)</li>
+            <li><b>히스토리:</b> ⌘[ (뒤로) / ⌘] (앞으로)</li>
+            <li><b>분할:</b> ⌘D (우측) / ⇧⌘D (하단)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">4</div>
+        <div class="tip-content">
+          <strong>하루 3개 규칙</strong>
+          <p>매일 3개씩만 연습:</p>
+          <ol>
+            <li>아침: 새 단축키 3개 선택</li>
+            <li>하루 종일: 의식적으로 사용</li>
+            <li>저녁: 체크박스 표시 ✓</li>
+          </ol>
+          <p class="tip-note">80개 ÷ 3 = 약 4주면 마스터!</p>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">5</div>
+        <div class="tip-content">
+          <strong>마우스 금지 챌린지</strong>
+          <p>특정 작업에서 마우스 사용 금지:</p>
+          <ul>
+            <li>1주차: 탭 전환은 키보드로만</li>
+            <li>2주차: 파일 열기는 ⌘P로만</li>
+            <li>3주차: 창 관리는 Rectangle로만</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">6</div>
+        <div class="tip-content">
+          <strong>손가락 근육 기억</strong>
+          <p>눈 감고 10번씩 반복:</p>
+          <ol>
+            <li>단축키를 보지 않고 누르기</li>
+            <li>틀리면 다시 10번</li>
+            <li>3일 연속 성공 = 완전 습득</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pattern-section no-print">
+    <h2>Pattern Analysis - 패턴으로 외우기</h2>
+    <div class="pattern-grid">
+      <!-- 앱 간 공통 단축키 -->
+      <div class="pattern-card">
+        <h3>앱 간 공통 단축키</h3>
+        <table class="pattern-table">
+          <tr><th>단축키</th><th>의미</th><th>앱</th></tr>
+          <tr><td><kbd>⌘K</kbd></td><td>새로 시작/빠른 이동</td><td>Claude, Slack</td></tr>
+          <tr><td><kbd>⌘P</kbd></td><td>팔레트/빠른 열기</td><td>VS Code, Warp</td></tr>
+          <tr><td><kbd>⌘[</kbd> <kbd>⌘]</kbd></td><td>뒤로/앞으로</td><td>Safari, Slack, Warp</td></tr>
+          <tr><td><kbd>⌃Tab</kbd></td><td>다음/이전 탭</td><td>Safari, Warp</td></tr>
+          <tr><td><kbd>⌘1~9</kbd></td><td>N번째 탭</td><td>Safari, Warp</td></tr>
+          <tr><td><kbd>⌃`</kbd></td><td>AI/터미널</td><td>VS Code, Warp</td></tr>
+        </table>
+      </div>
+
+      <!-- Modifier 패턴 -->
+      <div class="pattern-card">
+        <h3>Modifier 키 규칙</h3>
+        <table class="pattern-table">
+          <tr><th>Modifier</th><th>의미</th><th>예시</th></tr>
+          <tr><td><kbd>⌘</kbd></td><td>기본 동작</td><td>⌘T = 새 탭</td></tr>
+          <tr><td><kbd>⇧⌘</kbd></td><td>반대/확장</td><td>⇧⌘T = 닫은 탭 복구</td></tr>
+          <tr><td><kbd>⌃⌥</kbd></td><td>창 관리</td><td>⌃⌥← = 왼쪽 절반</td></tr>
+          <tr><td><kbd>⌃⌥⌘</kbd></td><td>모니터 이동</td><td>⌃⌥⌘→ = 다음 모니터</td></tr>
+        </table>
+        <div style="margin-top:6px; font-size:8px; color:#666;">
+          <b>반대 동작 쌍:</b> ⌘T↔⇧⌘T, ⌘D↔⇧⌘D, ⌃Tab↔⌃⇧Tab, ⌘[↔⌘]
+        </div>
+      </div>
+
+      <!-- 알파벳 연상법 -->
+      <div class="pattern-card wide">
+        <h3>알파벳 연상법 (Mnemonics)</h3>
+        <div class="mnemonic-grid">
+          <div class="mnemonic-item"><kbd>K</kbd><b>K</b>ick off</div>
+          <div class="mnemonic-item"><kbd>L</kbd><b>L</b>ocation</div>
+          <div class="mnemonic-item"><kbd>D</kbd>a<b>D</b>d/Dup</div>
+          <div class="mnemonic-item"><kbd>R</kbd><b>R</b>efresh</div>
+          <div class="mnemonic-item"><kbd>T</kbd><b>T</b>ab</div>
+          <div class="mnemonic-item"><kbd>P</kbd><b>P</b>alette</div>
+          <div class="mnemonic-item"><kbd>W</kbd><b>W</b>indow닫기</div>
+          <div class="mnemonic-item"><kbd>C</kbd><b>C</b>ompose</div>
+          <div class="mnemonic-item"><kbd>G</kbd><b>G</b>o/검색</div>
+          <div class="mnemonic-item"><kbd>I</kbd><b>I</b>ncognito</div>
+          <div class="mnemonic-item"><kbd>O</kbd><b>O</b>CR</div>
+          <div class="mnemonic-item"><kbd>B</kbd><b>B</b>ookmark</div>
+        </div>
+      </div>
+
+      <!-- 앱별 특징 -->
+      <div class="pattern-card wide">
+        <h3>앱별 고유 패턴</h3>
+        <table class="pattern-table">
+          <tr><th>앱</th><th>특징</th><th>예시</th></tr>
+          <tr><td><b>Gmail</b></td><td>Modifier 없이 단일 키 (Vim 스타일)</td><td>C, J, K, R, V</td></tr>
+          <tr><td><b>Slack</b></td><td>메시지 선택 후 단일 키</td><td>E (수정), T (스레드), ⌫ (삭제)</td></tr>
+          <tr><td><b>Rectangle</b></td><td>모든 단축키 ⌃⌥로 시작</td><td>⌃⌥← (왼쪽), ⌃⌥↩ (최대화)</td></tr>
+          <tr><td><b>Shottr</b></td><td>모든 스크린샷 ⇧⌘+숫자</td><td>⇧⌘1 (전체), ⇧⌘2 (영역)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="pattern-summary">
+      <h3>핵심 암기 공식</h3>
+      <ul>
+        <li><kbd>⌘K</kbd> / <kbd>⌘P</kbd> = "빠르게 뭔가 시작" (거의 모든 앱)</li>
+        <li><kbd>⌘[</kbd> / <kbd>⌘]</kbd> = "시간 여행" (뒤로/앞으로)</li>
+        <li><kbd>⇧</kbd> 추가 = "반대 동작"</li>
+        <li><kbd>⌃⌥</kbd> = "Rectangle 전용"</li>
+        <li>Gmail/Slack = "단일 키" (Vim 스타일)</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    ⌘ Command &nbsp;|&nbsp; ⌃ Control &nbsp;|&nbsp; ⌥ Option &nbsp;|&nbsp; ⇧ Shift &nbsp;|&nbsp; Print: Cmd+P → Save as PDF
+  </footer>
+
+  <script>
+    const STORAGE_KEY = 'shortcut-checklist';
+    let checkedItems = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+    function toggle(el) {
+      const row = el.closest('.shortcut-row');
+      const id = row.dataset.id;
+
+      if (checkedItems[id]) {
+        delete checkedItems[id];
+        el.classList.remove('checked');
+        el.innerHTML = '';
+        row.classList.remove('checked');
+      } else {
+        checkedItems[id] = true;
+        el.classList.add('checked');
+        el.innerHTML = '✓';
+        row.classList.add('checked');
+      }
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
+      updateProgress();
+    }
+
+    function resetAll() {
+      if (confirm('Reset all checkmarks?')) {
+        checkedItems = {};
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
+        document.querySelectorAll('.checkbox').forEach(cb => {
+          cb.classList.remove('checked');
+          cb.innerHTML = '';
+          cb.closest('.shortcut-row').classList.remove('checked');
+        });
+        updateProgress();
+      }
+    }
+
+    function updateProgress() {
+      const total = document.querySelectorAll('.shortcut-row').length;
+      const checked = Object.keys(checkedItems).length;
+
+      document.getElementById('checkedCount').textContent = checked;
+      document.getElementById('totalProgress').style.width = (checked / total * 100) + '%';
+
+      // Update per-app progress
+      document.querySelectorAll('.app').forEach(app => {
+        const appName = app.dataset.app;
+        const appRows = app.querySelectorAll('.shortcut-row');
+        const appChecked = Array.from(appRows).filter(row => checkedItems[row.dataset.id]).length;
+        app.querySelector('.app-progress').textContent = `${appChecked}/${appRows.length}`;
+      });
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.shortcut-row').forEach(row => {
+        const id = row.dataset.id;
+        if (checkedItems[id]) {
+          const cb = row.querySelector('.checkbox');
+          cb.classList.add('checked');
+          cb.innerHTML = '✓';
+          row.classList.add('checked');
+        }
+      });
+      updateProgress();
+    });
+  </script>
+</body>
+</html>
