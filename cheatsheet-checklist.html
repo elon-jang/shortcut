@@ -252,13 +252,57 @@
     .tip-content li {
       margin-bottom: 2px;
     }
-    .tip-content kbd {
-      background: #e8e8e8;
-      border: 1px solid #ccc;
+    .tip-content kbd,
+    .pattern-card kbd,
+    .pattern-summary kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 14px;
+      height: 14px;
+      padding: 0 3px;
+      background: linear-gradient(180deg, #fff 0%, #e8e8e8 100%);
+      border: 1px solid #b0b0b0;
       border-radius: 3px;
-      padding: 1px 4px;
-      font-size: 7px;
-      font-family: -apple-system, monospace;
+      font-size: 9px;
+      font-weight: 600;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #333;
+      box-shadow: 0 1px 0 #999;
+      vertical-align: middle;
+      margin: 0 1px;
+    }
+    .tip-content .keys-inline,
+    .pattern-card .keys-inline {
+      display: inline-flex;
+      gap: 2px;
+      align-items: center;
+      margin-right: 4px;
+    }
+    .tip-content .key-sm,
+    .pattern-card .key-sm,
+    .pattern-summary .key-sm,
+    .formula-item .key-sm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      background: linear-gradient(180deg, #fff 0%, #e8e8e8 100%);
+      border: 1px solid #b0b0b0;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #333;
+      box-shadow: 0 1px 0 #999;
+    }
+    .tip-content .key-sm.mod,
+    .pattern-card .key-sm.mod,
+    .pattern-summary .key-sm.mod,
+    .formula-item .key-sm.mod {
+      background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 100%);
+      font-size: 12px;
     }
     .tip-note {
       background: #fff3cd;
@@ -330,14 +374,28 @@
     .mnemonic-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
+      gap: 6px;
       font-size: 8px;
     }
     .mnemonic-item {
       background: #f8f9fa;
-      padding: 3px 5px;
-      border-radius: 4px;
-      text-align: center;
+      padding: 6px 8px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #e0e0e0;
+    }
+    .mnemonic-item .key-sm {
+      flex-shrink: 0;
+    }
+    .mnemonic-item .mnemonic-text {
+      font-size: 9px;
+      color: #333;
+    }
+    .mnemonic-item .mnemonic-text b {
+      color: #11998e;
+      font-weight: 700;
     }
     .mnemonic-item kbd {
       display: block;
@@ -345,15 +403,37 @@
       margin-bottom: 2px;
     }
     .pattern-summary {
-      background: rgba(0,0,0,0.1);
-      border-radius: 6px;
-      padding: 8px;
-      margin-top: 8px;
-      color: white;
+      background: rgba(255,255,255,0.95);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      color: #333;
     }
     .pattern-summary h3 {
-      font-size: 10px;
-      margin-bottom: 6px;
+      font-size: 11px;
+      margin-bottom: 8px;
+      color: #11998e;
+      font-weight: 700;
+    }
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+    .formula-item {
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 8px;
+      text-align: center;
+    }
+    .formula-item .formula-keys {
+      margin-bottom: 4px;
+    }
+    .formula-item .formula-desc {
+      font-size: 8px;
+      color: #666;
+      line-height: 1.3;
     }
     .pattern-summary ul {
       font-size: 9px;
@@ -367,6 +447,12 @@
       border: 1px solid rgba(255,255,255,0.3);
       color: white;
     }
+    .formula-item .keys-inline {
+      display: inline-flex;
+      gap: 2px;
+      align-items: center;
+      margin: 0 2px;
+    }
   </style>
 </head>
 <body>
@@ -377,7 +463,7 @@
 
   <header>
     <h1>Mac Shortcuts Cheat Sheet</h1>
-    <p>80 shortcuts across 8 apps • Updated 2026-01-22</p>
+    <p>82 shortcuts across 8 apps • Updated 2026-01-23</p>
     <div class="progress-bar"><div class="progress-fill" id="totalProgress"></div></div>
     <div class="progress-text"><span id="checkedCount">0</span> / 80 learned</div>
   </header>
@@ -791,6 +877,19 @@
         </div>
       </div>
       <div class="section">
+        <div class="section-title">View</div>
+        <div class="shortcut-row" data-id="warp-16">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">E</span></div>
+          <span class="desc">파일 탐색기</span>
+        </div>
+        <div class="shortcut-row" data-id="warp-17">
+          <div class="checkbox" onclick="toggle(this)"></div>
+          <div class="keys"><span class="key modifier">⇧</span><span class="key modifier">⌘</span><span class="key">+</span></div>
+          <span class="desc">변경사항 보기</span>
+        </div>
+      </div>
+      <div class="section">
         <div class="section-title">Settings</div>
         <div class="shortcut-row" data-id="warp-15">
           <div class="checkbox" onclick="toggle(this)"></div>
@@ -923,12 +1022,12 @@
           <strong>연상 기억법 (Mnemonics)</strong>
           <p>키와 기능을 연결하세요:</p>
           <ul>
-            <li><kbd>⌘K</kbd> = <b>K</b>ick off new chat</li>
-            <li><kbd>⌘L</kbd> = <b>L</b>ocation bar (주소창)</li>
-            <li><kbd>⌘D</kbd> = a<b>D</b>d bookmark / <b>D</b>uplicate selection</li>
-            <li><kbd>⌘R</kbd> = <b>R</b>efresh / <b>R</b>eload</li>
-            <li><kbd>⌘W</kbd> = close <b>W</b>indow/tab</li>
-            <li><kbd>⌘T</kbd> = new <b>T</b>ab</li>
+            <li><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">K</span></span> = <b>K</b>ick off new chat</li>
+            <li><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">L</span></span> = <b>L</b>ocation bar (주소창)</li>
+            <li><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">D</span></span> = a<b>D</b>d bookmark / <b>D</b>uplicate</li>
+            <li><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">R</span></span> = <b>R</b>efresh / <b>R</b>eload</li>
+            <li><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">W</span></span> = close <b>W</b>indow/tab</li>
+            <li><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">T</span></span> = new <b>T</b>ab</li>
           </ul>
         </div>
       </div>
@@ -938,10 +1037,10 @@
           <strong>Modifier 패턴 이해하기</strong>
           <p>수식 키의 일관된 의미:</p>
           <ul>
-            <li><kbd>⌘</kbd> = 기본 동작</li>
-            <li><kbd>⇧⌘</kbd> = 반대/확장 동작 (예: Undo↔Redo)</li>
-            <li><kbd>⌥</kbd> = 대체/고급 옵션</li>
-            <li><kbd>⌃</kbd> = 시스템/터미널 레벨</li>
+            <li><span class="key-sm mod">⌘</span> = 기본 동작</li>
+            <li><span class="keys-inline"><span class="key-sm mod">⇧</span><span class="key-sm mod">⌘</span></span> = 반대/확장 (예: Undo↔Redo)</li>
+            <li><span class="key-sm mod">⌥</span> = 대체/고급 옵션</li>
+            <li><span class="key-sm mod">⌃</span> = 시스템/터미널 레벨</li>
           </ul>
         </div>
       </div>
@@ -951,9 +1050,9 @@
           <strong>그룹으로 학습하기</strong>
           <p>비슷한 단축키를 묶어서 암기:</p>
           <ul>
-            <li><b>탭 이동:</b> ⌃Tab (다음) / ⌃⇧Tab (이전)</li>
-            <li><b>히스토리:</b> ⌘[ (뒤로) / ⌘] (앞으로)</li>
-            <li><b>분할:</b> ⌘D (우측) / ⇧⌘D (하단)</li>
+            <li><b>탭 이동:</b> <span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm">Tab</span></span> / <span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm mod">⇧</span><span class="key-sm">Tab</span></span></li>
+            <li><b>히스토리:</b> <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">[</span></span> / <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">]</span></span></li>
+            <li><b>분할:</b> <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">D</span></span> / <span class="keys-inline"><span class="key-sm mod">⇧</span><span class="key-sm mod">⌘</span><span class="key-sm">D</span></span></li>
           </ul>
         </div>
       </div>
@@ -1005,12 +1104,12 @@
         <h3>앱 간 공통 단축키</h3>
         <table class="pattern-table">
           <tr><th>단축키</th><th>의미</th><th>앱</th></tr>
-          <tr><td><kbd>⌘K</kbd></td><td>새로 시작/빠른 이동</td><td>Claude, Slack</td></tr>
-          <tr><td><kbd>⌘P</kbd></td><td>팔레트/빠른 열기</td><td>VS Code, Warp</td></tr>
-          <tr><td><kbd>⌘[</kbd> <kbd>⌘]</kbd></td><td>뒤로/앞으로</td><td>Safari, Slack, Warp</td></tr>
-          <tr><td><kbd>⌃Tab</kbd></td><td>다음/이전 탭</td><td>Safari, Warp</td></tr>
-          <tr><td><kbd>⌘1~9</kbd></td><td>N번째 탭</td><td>Safari, Warp</td></tr>
-          <tr><td><kbd>⌃`</kbd></td><td>AI/터미널</td><td>VS Code, Warp</td></tr>
+          <tr><td><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">K</span></span></td><td>새로 시작/빠른 이동</td><td>Claude, Slack</td></tr>
+          <tr><td><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">P</span></span></td><td>팔레트/빠른 열기</td><td>VS Code, Warp</td></tr>
+          <tr><td><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">[</span></span> <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">]</span></span></td><td>뒤로/앞으로</td><td>Safari, Slack, Warp</td></tr>
+          <tr><td><span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm">Tab</span></span></td><td>다음/이전 탭</td><td>Safari, Warp</td></tr>
+          <tr><td><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">1~9</span></span></td><td>N번째 탭</td><td>Safari, Warp</td></tr>
+          <tr><td><span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm">`</span></span></td><td>AI/터미널</td><td>VS Code, Warp</td></tr>
         </table>
       </div>
 
@@ -1019,13 +1118,13 @@
         <h3>Modifier 키 규칙</h3>
         <table class="pattern-table">
           <tr><th>Modifier</th><th>의미</th><th>예시</th></tr>
-          <tr><td><kbd>⌘</kbd></td><td>기본 동작</td><td>⌘T = 새 탭</td></tr>
-          <tr><td><kbd>⇧⌘</kbd></td><td>반대/확장</td><td>⇧⌘T = 닫은 탭 복구</td></tr>
-          <tr><td><kbd>⌃⌥</kbd></td><td>창 관리</td><td>⌃⌥← = 왼쪽 절반</td></tr>
-          <tr><td><kbd>⌃⌥⌘</kbd></td><td>모니터 이동</td><td>⌃⌥⌘→ = 다음 모니터</td></tr>
+          <tr><td><span class="key-sm mod">⌘</span></td><td>기본 동작</td><td><span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">T</span></span> = 새 탭</td></tr>
+          <tr><td><span class="keys-inline"><span class="key-sm mod">⇧</span><span class="key-sm mod">⌘</span></span></td><td>반대/확장</td><td><span class="keys-inline"><span class="key-sm mod">⇧</span><span class="key-sm mod">⌘</span><span class="key-sm">T</span></span> = 닫은 탭 복구</td></tr>
+          <tr><td><span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm mod">⌥</span></span></td><td>창 관리</td><td><span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm mod">⌥</span><span class="key-sm">←</span></span> = 왼쪽 절반</td></tr>
+          <tr><td><span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm mod">⌥</span><span class="key-sm mod">⌘</span></span></td><td>모니터 이동</td><td><span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm mod">⌥</span><span class="key-sm mod">⌘</span><span class="key-sm">→</span></span></td></tr>
         </table>
         <div style="margin-top:6px; font-size:8px; color:#666;">
-          <b>반대 동작 쌍:</b> ⌘T↔⇧⌘T, ⌘D↔⇧⌘D, ⌃Tab↔⌃⇧Tab, ⌘[↔⌘]
+          <b>반대 동작 쌍:</b> <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">T</span></span>↔<span class="keys-inline"><span class="key-sm mod">⇧</span><span class="key-sm mod">⌘</span><span class="key-sm">T</span></span>, <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">D</span></span>↔<span class="keys-inline"><span class="key-sm mod">⇧</span><span class="key-sm mod">⌘</span><span class="key-sm">D</span></span>
         </div>
       </div>
 
@@ -1033,18 +1132,18 @@
       <div class="pattern-card wide">
         <h3>알파벳 연상법 (Mnemonics)</h3>
         <div class="mnemonic-grid">
-          <div class="mnemonic-item"><kbd>K</kbd><b>K</b>ick off</div>
-          <div class="mnemonic-item"><kbd>L</kbd><b>L</b>ocation</div>
-          <div class="mnemonic-item"><kbd>D</kbd>a<b>D</b>d/Dup</div>
-          <div class="mnemonic-item"><kbd>R</kbd><b>R</b>efresh</div>
-          <div class="mnemonic-item"><kbd>T</kbd><b>T</b>ab</div>
-          <div class="mnemonic-item"><kbd>P</kbd><b>P</b>alette</div>
-          <div class="mnemonic-item"><kbd>W</kbd><b>W</b>indow닫기</div>
-          <div class="mnemonic-item"><kbd>C</kbd><b>C</b>ompose</div>
-          <div class="mnemonic-item"><kbd>G</kbd><b>G</b>o/검색</div>
-          <div class="mnemonic-item"><kbd>I</kbd><b>I</b>ncognito</div>
-          <div class="mnemonic-item"><kbd>O</kbd><b>O</b>CR</div>
-          <div class="mnemonic-item"><kbd>B</kbd><b>B</b>ookmark</div>
+          <div class="mnemonic-item"><span class="key-sm">K</span><span class="mnemonic-text"><b>K</b>ick off</span></div>
+          <div class="mnemonic-item"><span class="key-sm">L</span><span class="mnemonic-text"><b>L</b>ocation</span></div>
+          <div class="mnemonic-item"><span class="key-sm">D</span><span class="mnemonic-text">a<b>D</b>d / <b>D</b>up</span></div>
+          <div class="mnemonic-item"><span class="key-sm">R</span><span class="mnemonic-text"><b>R</b>efresh</span></div>
+          <div class="mnemonic-item"><span class="key-sm">T</span><span class="mnemonic-text"><b>T</b>ab</span></div>
+          <div class="mnemonic-item"><span class="key-sm">P</span><span class="mnemonic-text"><b>P</b>alette</span></div>
+          <div class="mnemonic-item"><span class="key-sm">W</span><span class="mnemonic-text"><b>W</b>indow 닫기</span></div>
+          <div class="mnemonic-item"><span class="key-sm">C</span><span class="mnemonic-text"><b>C</b>ompose</span></div>
+          <div class="mnemonic-item"><span class="key-sm">G</span><span class="mnemonic-text"><b>G</b>o / 검색</span></div>
+          <div class="mnemonic-item"><span class="key-sm">I</span><span class="mnemonic-text"><b>I</b>ncognito</span></div>
+          <div class="mnemonic-item"><span class="key-sm">O</span><span class="mnemonic-text"><b>O</b>CR</span></div>
+          <div class="mnemonic-item"><span class="key-sm">B</span><span class="mnemonic-text"><b>B</b>ookmark</span></div>
         </div>
       </div>
 
@@ -1053,23 +1152,50 @@
         <h3>앱별 고유 패턴</h3>
         <table class="pattern-table">
           <tr><th>앱</th><th>특징</th><th>예시</th></tr>
-          <tr><td><b>Gmail</b></td><td>Modifier 없이 단일 키 (Vim 스타일)</td><td>C, J, K, R, V</td></tr>
-          <tr><td><b>Slack</b></td><td>메시지 선택 후 단일 키</td><td>E (수정), T (스레드), ⌫ (삭제)</td></tr>
-          <tr><td><b>Rectangle</b></td><td>모든 단축키 ⌃⌥로 시작</td><td>⌃⌥← (왼쪽), ⌃⌥↩ (최대화)</td></tr>
-          <tr><td><b>Shottr</b></td><td>모든 스크린샷 ⇧⌘+숫자</td><td>⇧⌘1 (전체), ⇧⌘2 (영역)</td></tr>
+          <tr><td><b>Gmail</b></td><td>Modifier 없이 단일 키 (Vim 스타일)</td><td><span class="key-sm">C</span> <span class="key-sm">J</span> <span class="key-sm">K</span> <span class="key-sm">R</span> <span class="key-sm">V</span></td></tr>
+          <tr><td><b>Slack</b></td><td>메시지 선택 후 단일 키</td><td><span class="key-sm">E</span> (수정), <span class="key-sm">T</span> (스레드), <span class="key-sm">⌫</span> (삭제)</td></tr>
+          <tr><td><b>Rectangle</b></td><td>모든 단축키 <span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm mod">⌥</span></span>로 시작</td><td><span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm mod">⌥</span><span class="key-sm">←</span></span> <span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm mod">⌥</span><span class="key-sm">↩</span></span></td></tr>
+          <tr><td><b>Shottr</b></td><td>모든 스크린샷 <span class="keys-inline"><span class="key-sm mod">⇧</span><span class="key-sm mod">⌘</span></span>+숫자</td><td><span class="keys-inline"><span class="key-sm mod">⇧</span><span class="key-sm mod">⌘</span><span class="key-sm">1</span></span> <span class="keys-inline"><span class="key-sm mod">⇧</span><span class="key-sm mod">⌘</span><span class="key-sm">2</span></span></td></tr>
         </table>
       </div>
     </div>
 
     <div class="pattern-summary">
       <h3>핵심 암기 공식</h3>
-      <ul>
-        <li><kbd>⌘K</kbd> / <kbd>⌘P</kbd> = "빠르게 뭔가 시작" (거의 모든 앱)</li>
-        <li><kbd>⌘[</kbd> / <kbd>⌘]</kbd> = "시간 여행" (뒤로/앞으로)</li>
-        <li><kbd>⇧</kbd> 추가 = "반대 동작"</li>
-        <li><kbd>⌃⌥</kbd> = "Rectangle 전용"</li>
-        <li>Gmail/Slack = "단일 키" (Vim 스타일)</li>
-      </ul>
+      <div class="formula-grid">
+        <div class="formula-item">
+          <div class="formula-keys">
+            <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">K</span></span>
+            <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">P</span></span>
+          </div>
+          <div class="formula-desc">빠르게 뭔가 시작<br>(거의 모든 앱)</div>
+        </div>
+        <div class="formula-item">
+          <div class="formula-keys">
+            <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">[</span></span>
+            <span class="keys-inline"><span class="key-sm mod">⌘</span><span class="key-sm">]</span></span>
+          </div>
+          <div class="formula-desc">시간 여행<br>(뒤로/앞으로)</div>
+        </div>
+        <div class="formula-item">
+          <div class="formula-keys">
+            <span class="key-sm mod">⇧</span> <span style="font-size:9px;">추가</span>
+          </div>
+          <div class="formula-desc">반대 동작</div>
+        </div>
+        <div class="formula-item">
+          <div class="formula-keys">
+            <span class="keys-inline"><span class="key-sm mod">⌃</span><span class="key-sm mod">⌥</span></span>
+          </div>
+          <div class="formula-desc">Rectangle 전용</div>
+        </div>
+        <div class="formula-item">
+          <div class="formula-keys" style="font-size:10px; font-weight:600;">
+            Gmail / Slack
+          </div>
+          <div class="formula-desc">단일 키<br>(Vim 스타일)</div>
+        </div>
+      </div>
     </div>
   </div>
 
