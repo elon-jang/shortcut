@@ -40,6 +40,13 @@ shortcuts:
       - shortcut: Cmd+\
         description: Warp Drive 관리 패널
 
+  - section: View
+    items:
+      - shortcut: Shift+Cmd+E
+        description: 파일 탐색기 (File explorer)
+      - shortcut: Shift+Cmd++
+        description: 변경사항 보기 (View changes)
+
   - section: Settings
     items:
       - shortcut: Ctrl+Cmd+L
