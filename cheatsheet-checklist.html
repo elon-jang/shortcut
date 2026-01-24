@@ -11,6 +11,8 @@
     @media print {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .no-print { display: none !important; }
+      .tips-section { page-break-before: always; margin-top: 0; }
+      .pattern-section { margin-top: 10px; }
     }
     * {
       margin: 0;
@@ -1013,7 +1015,7 @@
     </div>
   </div>
 
-  <div class="tips-section no-print">
+  <div class="tips-section">
     <h2>Shortcut Memorization Tips</h2>
     <div class="tips-grid">
       <div class="tip-card">
@@ -1096,7 +1098,7 @@
     </div>
   </div>
 
-  <div class="pattern-section no-print">
+  <div class="pattern-section">
     <h2>Pattern Analysis - 패턴으로 외우기</h2>
     <div class="pattern-grid">
       <!-- 앱 간 공통 단축키 -->
