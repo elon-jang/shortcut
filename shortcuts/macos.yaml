@@ -1,0 +1,35 @@
+app: macOS
+shortcuts:
+  - section: Search
+    items:
+      - shortcut: Cmd+Space
+        description: 스포트라이트 검색 (Spotlight)
+
+  - section: File Management
+    items:
+      - shortcut: Space
+        description: 훑어보기 (Quick Look)
+      - shortcut: Return
+        description: 파일 이름 변경 (Rename)
+      - shortcut: Cmd+Delete
+        description: 파일 삭제 (휴지통 이동)
+
+  - section: Window Management
+    items:
+      - shortcut: Cmd+Tab
+        description: 앱 전환 (App Switcher)
+      - shortcut: Cmd+~
+        description: 같은 앱 내 창 전환
+      - shortcut: Ctrl+↑
+        description: Mission Control (모든 창 보기)
+      - shortcut: Ctrl+↓
+        description: App Exposé (현재 앱 창 모아보기)
+      - shortcut: Ctrl+←/→
+        description: 데스크탑(Space) 간 전환
+
+  - section: System
+    items:
+      - shortcut: Opt+Cmd+Esc
+        description: 프로그램 강제 종료
+      - shortcut: Ctrl+Cmd+Space
+        description: 이모지 및 기호 입력

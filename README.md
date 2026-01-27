@@ -16,6 +16,7 @@
 
 | App | Shortcuts | Last Updated |
 |-----|-----------|--------------|
+| [macOS](./shortcuts/macos.yaml) | 11 | 2026-01-27 |
 | [Claude Desktop](./shortcuts/claude-desktop.yaml) | 7 | 2026-01-21 |
 | [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
 | [Safari](./shortcuts/safari.yaml) | 15 | 2026-01-21 |
@@ -25,9 +26,21 @@
 | [Rectangle](./shortcuts/rectangle.yaml) | 10 | 2026-01-22 |
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 
-**Total**: 82 shortcuts across 8 apps
+**Total**: 93 shortcuts across 9 apps
 
 ## Quick Reference
+
+### macOS
+
+| Shortcut | Description |
+|----------|-------------|
+| Cmd+Space | 스포트라이트 검색 (Spotlight) |
+| Cmd+Tab | 앱 전환 (App Switcher) |
+| Ctrl+↑ | Mission Control (모든 창 보기) |
+| Ctrl+←/→ | 데스크탑(Space) 간 전환 |
+| Space | 훑어보기 (Quick Look) |
+
+[View all macOS shortcuts →](./shortcuts/macos.yaml)
 
 ### Claude Desktop
 
