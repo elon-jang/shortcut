@@ -19,7 +19,7 @@
 | [macOS](./shortcuts/macos.yaml) | 11 | 2026-01-27 |
 | [Claude Desktop](./shortcuts/claude-desktop.yaml) | 7 | 2026-01-21 |
 | [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
-| [Safari](./shortcuts/safari.yaml) | 15 | 2026-01-21 |
+| [Chrome](./shortcuts/chrome.yaml) | 15 | 2026-01-21 |
 | [Slack](./shortcuts/slack.yaml) | 11 | 2026-01-22 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 | [Warp](./shortcuts/warp.yaml) | 17 | 2026-01-23 |
@@ -66,7 +66,7 @@
 
 [View all Gmail shortcuts →](./shortcuts/gmail.yaml)
 
-### Safari
+### Chrome
 
 | Shortcut | Description |
 |----------|-------------|
@@ -76,7 +76,7 @@
 | Cmd+Shift+T | 마지막으로 닫은 탭 다시 열기 |
 | Cmd+D | 현재 페이지 북마크 추가 |
 
-[View all Safari shortcuts →](./shortcuts/safari.yaml)
+[View all Chrome shortcuts →](./shortcuts/chrome.yaml)
 
 ### Slack
 

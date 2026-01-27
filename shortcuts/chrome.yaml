@@ -1,4 +1,4 @@
-app: Safari
+app: Chrome
 shortcuts:
   - section: URL & Address Bar
     items:
@@ -6,8 +6,8 @@ shortcuts:
         description: 주소창 포커스 (URL 입력/복사)
       - shortcut: Cmd+Return
         description: 주소창에서 새 탭으로 열기
-      - shortcut: Cmd+Shift+L
-        description: 사이드바에서 읽기 목록 열기
+      - shortcut: Cmd+Shift+N
+        description: 시크릿 모드 새 창
 
   - section: Tabs
     items:
