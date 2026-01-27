@@ -7,6 +7,8 @@ shortcuts:
 
   - section: App Hotkeys
     items:
+      - shortcut: Ctrl+F
+        description: Finder 즉시 호출
       - shortcut: Ctrl+S
         description: Slack 즉시 호출
       - shortcut: Opt+C
