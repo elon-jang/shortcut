@@ -1,5 +1,10 @@
 app: Raycast
 shortcuts:
+  - section: General
+    items:
+      - shortcut: Cmd+Space
+        description: Raycast Launcher (런처 호출)
+
   - section: App Hotkeys
     items:
       - shortcut: Opt+C
