@@ -144,10 +144,9 @@
 | Shortcut | Description |
 |----------|-------------|
 | Cmd+Space | Raycast Launcher (런처 호출) |
-| Ctrl+F | Finder 즉시 호출 |
-| Ctrl+S | Slack 즉시 호출 |
 | Opt+C | Chrome 즉시 호출 |
+| Opt+F | Finder 즉시 호출 |
+| Opt+S | Slack 즉시 호출 |
 | Opt+V | VS Code 즉시 호출 |
-| Opt+W | Warp(터미널) 즉시 호출 |
 
 [View all Raycast shortcuts →](./shortcuts/raycast.yaml)

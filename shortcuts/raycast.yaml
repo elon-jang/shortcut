@@ -7,12 +7,12 @@ shortcuts:
 
   - section: App Hotkeys
     items:
-      - shortcut: Ctrl+F
-        description: Finder 즉시 호출
-      - shortcut: Ctrl+S
-        description: Slack 즉시 호출
       - shortcut: Opt+C
         description: Chrome 즉시 호출
+      - shortcut: Opt+F
+        description: Finder 즉시 호출
+      - shortcut: Opt+S
+        description: Slack 즉시 호출
       - shortcut: Opt+V
         description: VS Code 즉시 호출
       - shortcut: Opt+W
