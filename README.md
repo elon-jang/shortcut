@@ -25,8 +25,9 @@
 | [Warp](./shortcuts/warp.yaml) | 17 | 2026-01-23 |
 | [Rectangle](./shortcuts/rectangle.yaml) | 10 | 2026-01-22 |
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
+| [Raycast](./shortcuts/raycast.yaml) | 3 | 2026-01-27 |
 
-**Total**: 93 shortcuts across 9 apps
+**Total**: 96 shortcuts across 10 apps
 
 ## Quick Reference
 
@@ -137,3 +138,13 @@
 | Shift+Cmd+9 | Scrolling screenshot (스크롤 캡처) |
 
 [View all Shottr shortcuts →](./shortcuts/shottr.yaml)
+
+### Raycast
+
+| Shortcut | Description |
+|----------|-------------|
+| Opt+C | Chrome 즉시 호출 |
+| Opt+V | VS Code 즉시 호출 |
+| Opt+W | Warp(터미널) 즉시 호출 |
+
+[View all Raycast shortcuts →](./shortcuts/raycast.yaml)

@@ -1,0 +1,10 @@
+app: Raycast
+shortcuts:
+  - section: App Hotkeys
+    items:
+      - shortcut: Opt+C
+        description: Chrome 즉시 호출
+      - shortcut: Opt+V
+        description: VS Code 즉시 호출
+      - shortcut: Opt+W
+        description: Warp(터미널) 즉시 호출
