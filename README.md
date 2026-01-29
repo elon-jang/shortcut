@@ -18,6 +18,7 @@
 |-----|-----------|--------------|
 | [macOS](./shortcuts/macos.yaml) | 14 | 2026-01-29 |
 | [Claude Desktop](./shortcuts/claude-desktop.yaml) | 7 | 2026-01-21 |
+| [Claude Code](./shortcuts/claude-code.yaml) | 8 | 2026-01-29 |
 | [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
 | [Chrome](./shortcuts/chrome.yaml) | 15 | 2026-01-29 |
 | [Slack](./shortcuts/slack.yaml) | 11 | 2026-01-22 |
@@ -27,7 +28,7 @@
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 | [Raycast](./shortcuts/raycast.yaml) | 6 | 2026-01-27 |
 
-**Total**: 102 shortcuts across 10 apps
+**Total**: 110 shortcuts across 11 apps
 
 ## Quick Reference
 
@@ -54,6 +55,18 @@
 | Cmd+/ | 명령어 팔레트 |
 
 [View all Claude Desktop shortcuts →](./shortcuts/claude-desktop.yaml)
+
+### Claude Code
+
+| Shortcut | Description |
+|----------|-------------|
+| Ctrl+Z | 잠깐 멈추고 터미널 쓰기 (백그라운드 전환) |
+| ! | Bash 모드 전환 (터미널 명령어 직접 실행) |
+| Ctrl+G | 멀티라인 편집 (에디터 열기) |
+| Ctrl+S | 프롬프트 임시 저장 (Stash) |
+| Esc+Esc | 코드 + 대화 함께 롤백 (Rewind) |
+
+[View all Claude Code shortcuts →](./shortcuts/claude-code.yaml)
 
 ### Gmail
 
