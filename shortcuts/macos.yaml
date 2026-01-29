@@ -7,6 +7,12 @@ shortcuts:
 
   - section: File Management
     items:
+      - shortcut: Cmd+O
+        description: 파일/폴더 열기 (Open)
+      - shortcut: Cmd+↓
+        description: 파일 열기 / 폴더 진입
+      - shortcut: Cmd+↑
+        description: 상위 폴더로 이동
       - shortcut: Space
         description: 훑어보기 (Quick Look)
       - shortcut: Return

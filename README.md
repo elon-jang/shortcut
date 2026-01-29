@@ -16,7 +16,7 @@
 
 | App | Shortcuts | Last Updated |
 |-----|-----------|--------------|
-| [macOS](./shortcuts/macos.yaml) | 11 | 2026-01-27 |
+| [macOS](./shortcuts/macos.yaml) | 14 | 2026-01-29 |
 | [Claude Desktop](./shortcuts/claude-desktop.yaml) | 7 | 2026-01-21 |
 | [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
 | [Chrome](./shortcuts/chrome.yaml) | 14 | 2026-01-29 |
@@ -27,7 +27,7 @@
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 | [Raycast](./shortcuts/raycast.yaml) | 6 | 2026-01-27 |
 
-**Total**: 98 shortcuts across 10 apps
+**Total**: 101 shortcuts across 10 apps
 
 ## Quick Reference
 
