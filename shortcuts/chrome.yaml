@@ -21,6 +21,8 @@ shortcuts:
         description: 마지막으로 닫은 탭 다시 열기
       - shortcut: Cmd+1~9
         description: 해당 번호 탭으로 이동
+      - shortcut: Opt+Cmd+←/→
+        description: 이전/다음 탭으로 이동
       - shortcut: Ctrl+Tab
         description: 다음 탭으로 이동
       - shortcut: Ctrl+Shift+Tab
