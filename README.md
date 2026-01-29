@@ -19,7 +19,7 @@
 | [macOS](./shortcuts/macos.yaml) | 11 | 2026-01-27 |
 | [Claude Desktop](./shortcuts/claude-desktop.yaml) | 7 | 2026-01-21 |
 | [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
-| [Chrome](./shortcuts/chrome.yaml) | 16 | 2026-01-29 |
+| [Chrome](./shortcuts/chrome.yaml) | 17 | 2026-01-29 |
 | [Slack](./shortcuts/slack.yaml) | 11 | 2026-01-22 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 | [Warp](./shortcuts/warp.yaml) | 17 | 2026-01-23 |
@@ -27,7 +27,7 @@
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 | [Raycast](./shortcuts/raycast.yaml) | 6 | 2026-01-27 |
 
-**Total**: 100 shortcuts across 10 apps
+**Total**: 101 shortcuts across 10 apps
 
 ## Quick Reference
 
