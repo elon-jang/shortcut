@@ -36,8 +36,3 @@ shortcuts:
         description: 새로고침
       - shortcut: Esc
         description: 페이지 로딩 중지
-
-  - section: Extensions
-    items:
-      - shortcut: Cmd+E
-        description: Claude in Chrome
