@@ -21,14 +21,14 @@
 | [Claude Code](./shortcuts/claude-code.yaml) | 8 | 2026-01-29 |
 | [Gmail](./shortcuts/gmail.yaml) | 10 | 2026-01-20 |
 | [Chrome](./shortcuts/chrome.yaml) | 15 | 2026-01-29 |
-| [Slack](./shortcuts/slack.yaml) | 11 | 2026-01-22 |
+| [Slack](./shortcuts/slack.yaml) | 12 | 2026-01-30 |
 | [VS Code](./shortcuts/vscode.yaml) | 5 | 2026-01-19 |
 | [Warp](./shortcuts/warp.yaml) | 17 | 2026-01-23 |
 | [Rectangle](./shortcuts/rectangle.yaml) | 10 | 2026-01-22 |
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 | [Raycast](./shortcuts/raycast.yaml) | 6 | 2026-01-27 |
 
-**Total**: 110 shortcuts across 11 apps
+**Total**: 111 shortcuts across 11 apps
 
 ## Quick Reference
 
