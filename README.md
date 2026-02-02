@@ -27,8 +27,9 @@
 | [Rectangle](./shortcuts/rectangle.yaml) | 10 | 2026-01-22 |
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 | [Raycast](./shortcuts/raycast.yaml) | 6 | 2026-01-27 |
+| [AULA F87 Pro](./shortcuts/aula-f87.yaml) | 14 | 2026-02-02 |
 
-**Total**: 111 shortcuts across 11 apps
+**Total**: 125 shortcuts across 12 apps
 
 ## Quick Reference
 
@@ -163,3 +164,15 @@
 | Opt+V | VS Code 즉시 호출 |
 
 [View all Raycast shortcuts →](./shortcuts/raycast.yaml)
+
+### AULA F87 Pro
+
+| Shortcut | Description |
+|----------|-------------|
+| Fn+Q/W/E/R | OS 모드 전환 (Android/Windows/Mac/iOS) |
+| Fn+1/2/3 | Bluetooth 1/2/3 연결 (3초 홀드로 페어링) |
+| Fn+~ | 2.4G 무선 모드 전환 |
+| Fn+←/→ | RGB 이펙트 변경 |
+| Fn+↑/↓ | RGB 밝기 조절 |
+
+[View all AULA F87 Pro shortcuts →](./shortcuts/aula-f87.yaml)
