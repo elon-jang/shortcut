@@ -1,40 +1,19 @@
 app: AULA F87 Pro
 shortcuts:
-  - section: OS Mode Switch
+  - section: OS Mode
     items:
-      - shortcut: Fn+Q
-        description: Android 모드 전환
-      - shortcut: Fn+W
-        description: Windows 모드 전환
       - shortcut: Fn+E
         description: Mac 모드 전환
-      - shortcut: Fn+R
-        description: iOS 모드 전환
-
-  - section: Connection Mode
-    items:
-      - shortcut: Fn+1
-        description: Bluetooth 1 연결/페어링 (3초 홀드)
-      - shortcut: Fn+2
-        description: Bluetooth 2 연결/페어링 (3초 홀드)
-      - shortcut: Fn+3
-        description: Bluetooth 3 연결/페어링 (3초 홀드)
-      - shortcut: Fn+~
-        description: 2.4G 무선 모드 전환
 
   - section: RGB Lighting
     items:
       - shortcut: Fn+Insert
-        description: RGB 조명 모드 전환
-      - shortcut: Fn+←/→
-        description: RGB 이펙트 변경
-      - shortcut: Fn+↑/↓
-        description: RGB 밝기 조절
+        description: 조명 모드 전환
+      - shortcut: Fn+↑
+        description: 조명 밝게
+      - shortcut: Fn+↓
+        description: 조명 어둡게
       - shortcut: Fn+,
-        description: RGB 애니메이션 속도 감소
+        description: 조명 효과 느리게
       - shortcut: Fn+.
-        description: RGB 애니메이션 속도 증가
-      - shortcut: Fn+L+1min
-        description: RGB 모드 잠금 (1분 홀드)
-      - shortcut: Fn+L+5min
-        description: RGB 모드 잠금 해제 (5분 홀드)
+        description: 조명 효과 빠르게

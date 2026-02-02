@@ -27,9 +27,9 @@
 | [Rectangle](./shortcuts/rectangle.yaml) | 10 | 2026-01-22 |
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 | [Raycast](./shortcuts/raycast.yaml) | 6 | 2026-01-27 |
-| [AULA F87 Pro](./shortcuts/aula-f87.yaml) | 15 | 2026-02-02 |
+| [AULA F87 Pro](./shortcuts/aula-f87.yaml) | 6 | 2026-02-02 |
 
-**Total**: 126 shortcuts across 12 apps
+**Total**: 117 shortcuts across 12 apps
 
 ## Quick Reference
 
@@ -169,10 +169,9 @@
 
 | Shortcut | Description |
 |----------|-------------|
-| Fn+Q/W/E/R | OS 모드 전환 (Android/Windows/Mac/iOS) |
-| Fn+1/2/3 | Bluetooth 1/2/3 연결 (3초 홀드로 페어링) |
-| Fn+~ | 2.4G 무선 모드 전환 |
-| Fn+Insert | RGB 조명 모드 전환 |
-| Fn+↑/↓ | RGB 밝기 조절 |
+| Fn+E | Mac 모드 전환 |
+| Fn+Insert | 조명 모드 전환 |
+| Fn+↑/↓ | 조명 밝게/어둡게 |
+| Fn+,/. | 조명 효과 느리게/빠르게 |
 
 [View all AULA F87 Pro shortcuts →](./shortcuts/aula-f87.yaml)
