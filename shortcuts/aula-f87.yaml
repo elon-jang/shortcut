@@ -24,6 +24,8 @@ shortcuts:
 
   - section: RGB Lighting
     items:
+      - shortcut: Fn+Insert
+        description: RGB 조명 모드 전환
       - shortcut: Fn+←/→
         description: RGB 이펙트 변경
       - shortcut: Fn+↑/↓
