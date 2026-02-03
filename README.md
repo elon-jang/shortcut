@@ -28,8 +28,9 @@
 | [Shottr](./shortcuts/shottr.yaml) | 7 | 2026-01-22 |
 | [Raycast](./shortcuts/raycast.yaml) | 6 | 2026-01-27 |
 | [AULA F87 Pro](./shortcuts/aula-f87.yaml) | 6 | 2026-02-02 |
+| [Grabbit](./shortcuts/grabbit.yaml) | 1 | 2026-02-03 |
 
-**Total**: 117 shortcuts across 12 apps
+**Total**: 118 shortcuts across 13 apps
 
 ## Quick Reference
 
@@ -175,3 +176,11 @@
 | Fn+,/. | 조명 효과 느리게/빠르게 |
 
 [View all AULA F87 Pro shortcuts →](./shortcuts/aula-f87.yaml)
+
+### Grabbit
+
+| Shortcut | Description |
+|----------|-------------|
+| Opt+왼쪽마우스 | Copy URLs to clipboard (URL 클립보드 복사) |
+
+[View all Grabbit shortcuts →](./shortcuts/grabbit.yaml)
