@@ -29,9 +29,9 @@
 | [Raycast](./shortcuts/raycast.yaml) | 6 | 2026-01-27 |
 | [AULA F87 Pro](./shortcuts/aula-f87.yaml) | 6 | 2026-02-02 |
 | [Grabbit](./shortcuts/grabbit.yaml) | 1 | 2026-02-03 |
-| [Notion](./shortcuts/notion.yaml) | 5 | 2026-02-04 |
+| [Notion](./shortcuts/notion.yaml) | 6 | 2026-02-04 |
 
-**Total**: 123 shortcuts across 14 apps
+**Total**: 124 shortcuts across 14 apps
 
 ## Quick Reference
 
