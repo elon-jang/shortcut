@@ -29,9 +29,9 @@
 | [Raycast](./shortcuts/raycast.yaml) | 6 | 2026-01-27 |
 | [AULA F87 Pro](./shortcuts/aula-f87.yaml) | 6 | 2026-02-02 |
 | [Grabbit](./shortcuts/grabbit.yaml) | 1 | 2026-02-03 |
-| [Notion](./shortcuts/notion.yaml) | 7 | 2026-02-10 |
+| [Notion](./shortcuts/notion.yaml) | 10 | 2026-02-10 |
 
-**Total**: 125 shortcuts across 14 apps
+**Total**: 128 shortcuts across 14 apps
 
 ## Quick Reference
 
@@ -190,10 +190,10 @@
 
 | Shortcut | Description |
 |----------|-------------|
+| Cmd+D | Duplicate (블록 복제) |
+| Cmd+/ | Turn into (블록 타입 변경 메뉴) |
+| Cmd+Shift+↑/↓ | Move block (블록 위/아래 이동) |
 | Cmd+P | Quick Find - 페이지명 입력해 즉시 이동 (검색) |
 | Cmd+K | Add Link (선택한 텍스트에 링크 추가) |
-| Cmd+L | 페이지 링크 복사 (공유용 URL) |
-| Cmd+\ | 사이드바 열기/닫기 (몰입 모드) |
-| Cmd+Opt+1~3 | 제목(Heading 1~3) 변환 (0=텍스트 복구) |
 
 [View all Notion shortcuts →](./shortcuts/notion.yaml)
