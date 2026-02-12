@@ -1,16 +1,34 @@
 # My Shortcuts
 
-애플리케이션 단축키 모음입니다.
+애플리케이션 단축키 모음입니다. YAML 파일을 단일 소스로 관리하며, 웹앱과 치트시트에 자동 반영됩니다.
 
-**[Printable Cheat Sheet (A4)](./cheatsheet.html)** - 인쇄용 단축키 모음
+## Shortcut Pro 웹앱
 
-**[Interactive Checklist](./cheatsheet-checklist.html)** - 학습용 체크리스트 + 암기 팁 + 패턴 분석
+단축키 학습 게이미피케이션 웹앱입니다. YAML 데이터를 실시간으로 읽어 표시합니다.
 
-## Future Improvements
+```bash
+cd app && npm install && npm run dev
+```
 
-- [ ] `/shortcut:shortcut-learn` 스킬에서 체크리스트 진행률 연동
-- [ ] 브라우저 localStorage 대신 `learning_progress.yaml`에 진행률 저장
-- [ ] 다크모드 지원 (시스템 설정 자동 감지)
+**3가지 학습 모드:**
+- **객관식 퀴즈** - 4지선다 빠른 판단력 테스트
+- **리얼 키 입력** - 실제 단축키를 눌러 근육 기억 훈련
+- **플래시카드** - 자율 반복 암기
+
+YAML 파일을 수정하면 dev 서버가 자동으로 리로드됩니다.
+
+## 기타 뷰
+
+- **[Printable Cheat Sheet (A4)](./cheatsheet.html)** - 인쇄용 단축키 모음
+- **[Interactive Checklist](./cheatsheet-checklist.html)** - 학습용 체크리스트 + 암기 팁 + 패턴 분석
+
+## 구조
+
+```
+shortcuts/          YAML 데이터 (Single Source of Truth)
+app/                Shortcut Pro 웹앱 (React + Vite)
+cheatsheet.html     A4 인쇄용 치트시트
+```
 
 ## Summary
 
