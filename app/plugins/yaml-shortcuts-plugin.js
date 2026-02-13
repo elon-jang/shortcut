@@ -3,6 +3,7 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 const YAML_DIR = path.resolve(import.meta.dirname, '../../shortcuts');
+const PROGRESS_FILE = path.resolve(import.meta.dirname, '../../progress.json');
 
 const VIRTUAL_MODULE_ID = 'virtual:shortcuts';
 const RESOLVED_VIRTUAL_MODULE_ID = '\0' + VIRTUAL_MODULE_ID;
@@ -44,6 +45,10 @@ function isTypeable(shortcut) {
   if (shortcut.includes('Fn+') || shortcut === 'Fn') return false;
   // Insert 키
   if (shortcut.includes('Insert')) return false;
+  // OS 레벨 단축키 (브라우저에서 캡처 불가)
+  const osShortcuts = ['Cmd+Space', 'Cmd+Tab', 'Cmd+Q', 'Cmd+H', 'Cmd+M', 'Cmd+~',
+    'Ctrl+↑', 'Ctrl+↓', 'Ctrl+Cmd+Space', 'Opt+Cmd+Esc'];
+  if (osShortcuts.includes(shortcut)) return false;
   return true;
 }
 
@@ -143,6 +148,17 @@ function loadShortcuts() {
   return { shortcutData, categories };
 }
 
+function loadProgress() {
+  try {
+    if (fs.existsSync(PROGRESS_FILE)) {
+      return JSON.parse(fs.readFileSync(PROGRESS_FILE, 'utf-8'));
+    }
+  } catch {
+    // ignore
+  }
+  return null;
+}
+
 // 카테고리 표시 순서 정의
 const CATEGORY_ORDER = [
   'macos', 'chrome', 'vscode', 'slack', 'notion', 'gmail',
@@ -171,26 +187,39 @@ export default function yamlShortcutsPlugin() {
           return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
         });
 
+        const progress = loadProgress();
+
         return `export const SHORTCUT_DATA = ${JSON.stringify(shortcutData, null, 2)};
-export const CATEGORIES = ${JSON.stringify(sortedCategories, null, 2)};`;
+export const CATEGORIES = ${JSON.stringify(sortedCategories, null, 2)};
+export const INITIAL_PROGRESS = ${JSON.stringify(progress)};`;
       }
     },
 
     configureServer(server) {
       if (!fs.existsSync(YAML_DIR)) return;
 
-      // YAML 디렉토리 감시 → 변경 시 virtual module 무효화 + full-reload
+      // YAML 디렉토리 + progress.json 감시
       server.watcher.add(YAML_DIR);
+      server.watcher.add(PROGRESS_FILE);
 
-      const handleChange = (filePath) => {
-        if (!filePath.startsWith(YAML_DIR)) return;
-        if (!filePath.endsWith('.yaml') && !filePath.endsWith('.yml')) return;
-
+      const invalidateAndReload = () => {
         const mod = server.moduleGraph.getModuleById(RESOLVED_VIRTUAL_MODULE_ID);
         if (mod) {
           server.moduleGraph.invalidateModule(mod);
         }
         server.ws.send({ type: 'full-reload' });
+      };
+
+      const handleChange = (filePath) => {
+        // progress.json 변경
+        if (filePath === PROGRESS_FILE) {
+          invalidateAndReload();
+          return;
+        }
+        // YAML 변경
+        if (!filePath.startsWith(YAML_DIR)) return;
+        if (!filePath.endsWith('.yaml') && !filePath.endsWith('.yml')) return;
+        invalidateAndReload();
       };
 
       server.watcher.on('change', handleChange);

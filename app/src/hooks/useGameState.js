@@ -51,7 +51,7 @@ export const useGameState = () => {
     setCurrentIndex(0);
     setScore(0);
     setCombo(0);
-    setLives(3);
+    setLives(0);
     setTimer(0);
     setFeedback(null);
     setCardFlipped(false);
@@ -91,14 +91,10 @@ export const useGameState = () => {
   }, [combo]);
 
   const handleWrong = useCallback(() => {
-    if (lives > 1) {
-      setLives(l => l - 1);
-      setCombo(0);
-      return false; // 게임 계속
-    }
-    setLives(0);
-    return true; // 게임 오버
-  }, [lives]);
+    setLives(l => l + 1);
+    setCombo(0);
+    return false; // 항상 게임 계속
+  }, []);
 
   const incrementTimer = useCallback(() => {
     setTimer(t => t + 1);

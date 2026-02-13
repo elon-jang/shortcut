@@ -1,4 +1,4 @@
-export { SHORTCUT_DATA, CATEGORIES } from 'virtual:shortcuts';
+export { SHORTCUT_DATA, CATEGORIES, INITIAL_PROGRESS } from 'virtual:shortcuts';
 
 export const MODES = [
   { id: 'choice', name: '객관식 퀴즈', desc: '빠른 판단력 테스트' },

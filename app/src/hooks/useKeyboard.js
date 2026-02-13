@@ -8,9 +8,15 @@ export const useKeyboard = (isActive, onKeyCombo) => {
   }, []);
 
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive) {
+      setPressedKeys(new Set());
+      return;
+    }
 
     const handleKeyDown = (e) => {
+      // Let navigation handler handle Escape
+      if (e.key === 'Escape') return;
+
       e.preventDefault();
       const key = e.key;
 

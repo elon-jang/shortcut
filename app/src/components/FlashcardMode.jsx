@@ -1,37 +1,40 @@
-import { Star } from 'lucide-react';
+import { Eye } from 'lucide-react';
 
 export const FlashcardMode = ({ answer, flipped, feedback, onFlip, onCorrect, onSkip }) => {
   return (
-    <div className="perspective-2000 mt-10 relative z-50 min-h-[300px]">
-      <div className={`relative w-full h-full min-h-[300px] transition-all duration-700 preserve-3d ${flipped ? 'rotate-y-180' : ''}`}>
-        {/* 앞면 - 정답 확인 버튼 */}
+    <div className="perspective-2000 relative z-50 min-h-[140px] md:min-h-[160px]">
+      <div className={`relative w-full h-full min-h-[140px] md:min-h-[160px] transition-all duration-500 preserve-3d ${flipped ? 'rotate-y-180' : ''}`}>
+        {/* Front - reveal button */}
         <div
           onClick={() => !feedback && onFlip()}
-          className={`absolute inset-0 backface-hidden bg-slate-900/90 rounded-[4rem] border-4 border-dashed border-slate-700 flex flex-col items-center justify-center gap-10 cursor-pointer hover:border-indigo-500 hover:bg-slate-900 transition-all group shadow-2xl z-20 ${flipped ? 'pointer-events-none invisible' : 'pointer-events-auto visible'}`}
+          className={`absolute inset-0 backface-hidden bg-slate-900/60 rounded-xl border-2 border-dashed border-slate-700/60 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-indigo-500/50 transition-all group z-20 ${flipped ? 'pointer-events-none invisible' : 'pointer-events-auto visible'}`}
         >
-          <div className="bg-slate-800 p-10 rounded-full group-hover:bg-indigo-600/20 transition-all shadow-2xl border-2 border-slate-700">
-            <Star size={64} className="text-slate-600 group-hover:text-indigo-400 group-hover:scale-110 transition-transform" />
+          <div className="bg-slate-800 p-4 rounded-full group-hover:bg-indigo-600/15 transition-all border border-slate-700/50">
+            <Eye size={28} className="text-slate-600 group-hover:text-indigo-400 transition-colors" />
           </div>
-          <span className="text-2xl font-black text-slate-500 uppercase tracking-[0.5em] group-hover:text-slate-300">정답 확인하기</span>
+          <span className="text-sm md:text-base font-bold text-slate-500 group-hover:text-slate-300 transition-colors">정답 확인</span>
+          <span className="text-[11px] text-slate-600 font-mono">Space</span>
         </div>
 
-        {/* 뒷면 - 정답 표시 */}
-        <div className={`absolute inset-0 backface-hidden rotate-y-180 bg-[#151a30] rounded-[4rem] border-4 border-indigo-500 flex flex-col items-center justify-center gap-14 shadow-[0_0_80px_rgba(99,102,241,0.4)] z-30 ${!flipped ? 'pointer-events-none invisible' : 'pointer-events-auto visible'}`}>
-          <span className="text-7xl font-mono font-black text-indigo-400 drop-shadow-[0_0_20px_rgba(99,102,241,0.7)] tracking-tighter">
+        {/* Back - answer */}
+        <div className={`absolute inset-0 backface-hidden rotate-y-180 bg-slate-900/90 rounded-xl border-2 border-indigo-500/50 flex flex-col items-center justify-center gap-4 shadow-[0_0_30px_rgba(99,102,241,0.15)] z-30 ${!flipped ? 'pointer-events-none invisible' : 'pointer-events-auto visible'}`}>
+          <span className="text-2xl md:text-3xl font-mono font-black text-indigo-400 tracking-tight">
             {answer}
           </span>
-          <div className="flex gap-10">
-            <button
-              onClick={(e) => { e.stopPropagation(); onCorrect(); }}
-              className="px-16 py-6 bg-green-600 hover:bg-green-500 rounded-[2.5rem] text-2xl font-black shadow-[0_20px_50px_rgba(34,197,94,0.5)] transform hover:scale-110 active:scale-95 transition-all text-white border-b-8 border-green-800"
-            >
-              외웠어요!
-            </button>
+          <div className="flex gap-3">
             <button
               onClick={(e) => { e.stopPropagation(); onSkip(); }}
-              className="px-16 py-6 bg-slate-800 hover:bg-slate-700 rounded-[2.5rem] text-2xl font-black border-4 border-slate-700 transform hover:scale-110 active:scale-95 transition-all text-slate-300 shadow-2xl"
+              className="px-5 py-2 md:px-6 bg-slate-800 hover:bg-slate-700 rounded-xl text-sm md:text-base font-bold border border-slate-700 transition-all text-slate-300 active:scale-95 flex items-center gap-2"
             >
-              다음에 보기
+              <span className="text-[10px] text-slate-500 font-mono">&larr;</span>
+              다음에
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); onCorrect(); }}
+              className="px-5 py-2 md:px-6 bg-green-600 hover:bg-green-500 rounded-xl text-sm md:text-base font-bold transition-all text-white active:scale-95 flex items-center gap-2"
+            >
+              외웠어요
+              <span className="text-[10px] text-green-300/50 font-mono">&rarr;</span>
             </button>
           </div>
         </div>
