@@ -9,3 +9,4 @@ export { FlashcardMode } from './FlashcardMode';
 export { FeedbackOverlay } from './FeedbackOverlay';
 export { ResultScreen } from './ResultScreen';
 export { Footer } from './Footer';
+export { KeyboardHelp } from './KeyboardHelp';

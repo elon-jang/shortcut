@@ -2,8 +2,8 @@ import { Trophy, RotateCcw, Layers, Home, Download, ArrowUp, ArrowDown } from 'l
 
 export const ResultScreen = ({ activeCategory, score, timer, missCount = 0, totalQuestions = 0, onRestart, onModeSelect, onMenu, sessionResults = [], onExport }) => {
   const accuracy = totalQuestions > 0 ? Math.round(((totalQuestions - missCount) / totalQuestions) * 100) : 100;
-  const correctCount = sessionResults.filter(r => r.correct).length;
-  const wrongCount = sessionResults.filter(r => !r.correct).length;
+  const perfectCount = sessionResults.filter(r => r.correct && !r.retries).length;
+  const retriedCount = sessionResults.filter(r => r.correct && r.retries > 0).length;
 
   return (
     <div className="max-w-md md:max-w-lg mx-auto bg-slate-800/90 border border-slate-700 rounded-2xl p-6 md:p-8 text-center animate-in zoom-in-95 duration-500 shadow-xl">
@@ -33,14 +33,24 @@ export const ResultScreen = ({ activeCategory, score, timer, missCount = 0, tota
       {/* Session shortcut results */}
       {sessionResults.length > 0 && (
         <div className="mb-5 text-left">
-          <p className="text-[10px] md:text-xs text-slate-500 font-bold uppercase tracking-wider mb-2 text-center">단축키별 결과</p>
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <p className="text-[10px] md:text-xs text-slate-500 font-bold uppercase tracking-wider">단축키별 결과</p>
+            <div className="flex gap-2 text-[9px] font-bold">
+              {perfectCount > 0 && <span className="text-green-400">O {perfectCount}</span>}
+              {retriedCount > 0 && <span className="text-yellow-400">R {retriedCount}</span>}
+              {sessionResults.filter(r => !r.correct).length > 0 && <span className="text-red-400">X {sessionResults.filter(r => !r.correct).length}</span>}
+            </div>
+          </div>
           <div className="max-h-48 overflow-y-auto space-y-1 pr-1 scrollbar-thin">
             {sessionResults.map((r, i) => (
               <div key={i} className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm ${
                 r.correct ? 'bg-green-500/8 border border-green-500/15' : 'bg-red-500/8 border border-red-500/15'
               }`}>
-                <span className={`shrink-0 text-[10px] font-bold ${r.correct ? 'text-green-400' : 'text-red-400'}`}>
-                  {r.correct ? 'O' : 'X'}
+                <span className={`shrink-0 text-[10px] font-bold ${
+                  r.correct && !r.retries ? 'text-green-400' :
+                  r.correct && r.retries > 0 ? 'text-yellow-400' : 'text-red-400'
+                }`}>
+                  {r.correct && !r.retries ? 'O' : r.correct ? 'R' : 'X'}
                 </span>
                 <span className="truncate flex-1 text-slate-300">{r.action}</span>
                 <span className="font-mono text-slate-400 shrink-0 text-[11px]">{r.keys}</span>

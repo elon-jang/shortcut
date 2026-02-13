@@ -1,75 +1,38 @@
 import { useState, useMemo, useCallback } from 'react';
 import { INITIAL_PROGRESS } from '../data/shortcuts';
+import {
+  getToday, getDefaultProgress, mergeProgress,
+  computeAttempt, computeStreak, getMasteryStats, getCategoryProgressFromMap,
+} from './leitner';
 
 const STORAGE_KEY = 'shortcut_pro_data';
 const PROGRESS_KEY = 'shortcut_pro_progress';
 
-// Leitner box intervals (days)
-const BOX_INTERVALS = { 1: 0, 2: 1, 3: 3, 4: 7, 5: 14 };
-
-function getNextReview(box) {
-  const days = BOX_INTERVALS[box] || 0;
-  const d = new Date();
-  d.setDate(d.getDate() + days);
-  d.setHours(0, 0, 0, 0);
-  return d.toISOString();
-}
-
-const getDefaultUserData = () => ({
-  xp: 0,
-  level: 1,
-  streak: 0,
-  lastDate: null
-});
-
-const getDefaultProgress = () => ({
-  version: '1.0.0',
-  lastUpdated: new Date().toISOString(),
-  stats: { totalReviews: 0, streak: 0, lastDate: null },
-  shortcuts: {}
-});
-
-function mergeProgress(local, file) {
-  if (!file || !file.shortcuts) return local;
-  const merged = { ...local, shortcuts: { ...local.shortcuts } };
-  for (const [key, val] of Object.entries(file.shortcuts)) {
-    if (!merged.shortcuts[key]) {
-      merged.shortcuts[key] = val;
-    } else {
-      // Keep the one with more attempts (more data)
-      if (val.attempts > merged.shortcuts[key].attempts) {
-        merged.shortcuts[key] = val;
-      }
-    }
-  }
-  // Merge stats
-  if (file.stats) {
-    merged.stats.totalReviews = Math.max(merged.stats.totalReviews, file.stats.totalReviews || 0);
-    if (file.stats.streak > merged.stats.streak) {
-      merged.stats.streak = file.stats.streak;
-    }
-  }
-  return merged;
-}
+const getDefaultUserData = () => ({ xp: 0 });
 
 export const useUserData = () => {
   const [userData, setUserData] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : getDefaultUserData();
+      return saved ? { xp: JSON.parse(saved).xp || 0 } : getDefaultUserData();
     } catch {
       return getDefaultUserData();
     }
   });
 
+  const [syncInfo, setSyncInfo] = useState(null);
+
   const [progress, setProgress] = useState(() => {
     try {
       const saved = localStorage.getItem(PROGRESS_KEY);
       let local = saved ? JSON.parse(saved) : getDefaultProgress();
-      // Merge with file-based progress from Vite plugin
       if (INITIAL_PROGRESS) {
-        local = mergeProgress(local, INITIAL_PROGRESS);
+        const { merged, syncCount } = mergeProgress(local, INITIAL_PROGRESS);
+        local = merged;
         localStorage.setItem(PROGRESS_KEY, JSON.stringify(local));
+        if (syncCount > 0) {
+          setTimeout(() => setSyncInfo({ syncCount }), 0);
+        }
       }
       return local;
     } catch {
@@ -88,81 +51,49 @@ export const useUserData = () => {
     };
   }, [userData.xp]);
 
+  // XP only — streak is managed in progress.stats
   const updateXP = useCallback((gainedXp) => {
-    const today = new Date().toDateString();
     setUserData(prev => {
-      let newStreak = prev.streak;
-      if (prev.lastDate !== today) {
-        const yesterday = new Date(Date.now() - 86400000).toDateString();
-        newStreak = (prev.lastDate === yesterday) ? prev.streak + 1 : 1;
-      }
-      const newData = {
-        ...prev,
-        xp: prev.xp + gainedXp,
-        streak: newStreak,
-        lastDate: today
-      };
+      const newData = { ...prev, xp: prev.xp + gainedXp };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
       return newData;
     });
   }, []);
 
   const isTodayComplete = useMemo(() => {
-    return userData.lastDate === new Date().toDateString();
-  }, [userData.lastDate]);
+    return progress.stats.lastDate === getToday();
+  }, [progress.stats.lastDate]);
 
-  // Record a shortcut attempt (Leitner box update)
+  // Record a shortcut attempt (Leitner box update + streak + history)
   const recordAttempt = useCallback((shortcutId, categoryId, isCorrect) => {
     setProgress(prev => {
       const key = `${categoryId}:${shortcutId}`;
-      const entry = prev.shortcuts[key] || {
-        box: 1, correct: 0, attempts: 0, lastReview: null, nextReview: null
-      };
-
-      const newBox = isCorrect
-        ? Math.min(entry.box + 1, 5)
-        : 1;
+      const entry = prev.shortcuts[key];
+      const newEntry = computeAttempt(entry, isCorrect);
+      const { streak, lastDate } = computeStreak(prev.stats.streak, prev.stats.lastDate);
 
       const updated = {
         ...prev,
-        lastUpdated: new Date().toISOString(),
+        lastUpdated: newEntry.lastReview,
         stats: {
           ...prev.stats,
           totalReviews: prev.stats.totalReviews + 1,
+          streak,
+          lastDate,
         },
         shortcuts: {
           ...prev.shortcuts,
-          [key]: {
-            box: newBox,
-            correct: entry.correct + (isCorrect ? 1 : 0),
-            attempts: entry.attempts + 1,
-            lastReview: new Date().toISOString(),
-            nextReview: getNextReview(newBox),
-          }
+          [key]: newEntry,
         }
       };
-
-      // Update streak in progress stats
-      const today = new Date().toDateString();
-      if (updated.stats.lastDate !== today) {
-        const yesterday = new Date(Date.now() - 86400000).toDateString();
-        updated.stats.streak = (updated.stats.lastDate === yesterday)
-          ? updated.stats.streak + 1 : 1;
-        updated.stats.lastDate = today;
-      }
 
       localStorage.setItem(PROGRESS_KEY, JSON.stringify(updated));
       return updated;
     });
   }, []);
 
-  // Get progress for a specific category
   const getCategoryProgress = useCallback((categoryId) => {
-    const entries = Object.entries(progress.shortcuts)
-      .filter(([key]) => key.startsWith(`${categoryId}:`));
-    const total = entries.length;
-    const mastered = entries.filter(([, v]) => v.box >= 4).length;
-    return { total, mastered };
+    return getCategoryProgressFromMap(progress.shortcuts, categoryId);
   }, [progress]);
 
   // Get full progress data
@@ -179,19 +110,19 @@ export const useUserData = () => {
     URL.revokeObjectURL(url);
   }, [progress]);
 
-  // Get mastery stats for profile
   const masteryStats = useMemo(() => {
-    const entries = Object.values(progress.shortcuts);
-    const total = entries.length;
-    const mastered = entries.filter(v => v.box >= 4).length;
-    return { total, mastered };
+    return getMasteryStats(progress.shortcuts);
   }, [progress]);
+
+  const streak = useMemo(() => progress.stats.streak || 0, [progress.stats.streak]);
 
   return {
     userData,
     levelProgress,
     updateXP,
     isTodayComplete,
+    streak,
+    syncInfo,
     // Progress tracking
     recordAttempt,
     getCategoryProgress,

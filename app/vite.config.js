@@ -5,4 +5,8 @@ import yamlShortcuts from './plugins/yaml-shortcuts-plugin.js'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [yamlShortcuts(), react()],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+  },
 })

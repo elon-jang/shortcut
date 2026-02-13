@@ -107,7 +107,10 @@ function loadShortcuts() {
     const content = fs.readFileSync(filePath, 'utf-8');
     const data = yaml.load(content);
 
-    if (!data || !data.app || !data.shortcuts) continue;
+    if (!data || !data.app || !Array.isArray(data.shortcuts)) {
+      console.warn(`[yaml-shortcuts] Invalid YAML structure in ${file}: missing 'app' or 'shortcuts' array`);
+      continue;
+    }
 
     const categoryId = path.basename(file, path.extname(file));
     const meta = CATEGORY_META[categoryId] || {
@@ -127,12 +130,16 @@ function loadShortcuts() {
       desc: meta.desc,
     });
 
-    // 단축키 변환
+    // 단축키 변환 (with per-item validation)
     const items = [];
     let index = 0;
     for (const section of data.shortcuts) {
-      if (!section.items) continue;
+      if (!section.items || !Array.isArray(section.items)) continue;
       for (const item of section.items) {
+        if (!item.description || !item.shortcut) {
+          console.warn(`[yaml-shortcuts] Skipping invalid item in ${file} section "${section.section || '?'}": missing description or shortcut`);
+          continue;
+        }
         items.push({
           id: `${categoryId}-${index}`,
           action: item.description,

@@ -17,16 +17,63 @@ cd app && npm install && npm run dev
 
 YAML 파일을 수정하면 dev 서버가 자동으로 리로드됩니다.
 
+## Learning Loop
+
+웹앱, CLI, 치트시트가 `progress.json`을 통해 학습 데이터를 공유합니다.
+
+```
+발견 (Cheat Sheet) → 연습 (Web App) → 복습 (CLI) → 확인 (Cheat Sheet)
+```
+
+### Leitner Box 시스템
+
+단축키별로 5단계 박스로 관리하는 간격 반복 학습:
+
+| Box | 간격 | 의미 |
+|-----|------|------|
+| 1 | 즉시 | 새로운/틀린 단축키 |
+| 2 | 1일 | 첫 번째 복습 |
+| 3 | 3일 | 익숙해지는 중 |
+| 4 | 7일 | 거의 마스터 |
+| 5 | 14일 | 마스터 |
+
+- 정답 → Box +1 (최대 5)
+- 오답 → Box 1로 리셋
+
+### CLI 학습 명령 (Claude Code)
+
+```bash
+/shortcut:shortcut-learn          # 오늘 복습 대상 학습
+/shortcut:shortcut-learn chrome   # Chrome 단축키만
+/shortcut:shortcut-learn --all    # 전체 복습
+/shortcut:shortcut-stats          # 학습 통계 확인
+/shortcut:shortcut-cheatsheet --mode progress  # 진행률 반영 치트시트
+```
+
+CLI에서 학습하면 `progress.json`이 업데이트되고, 웹앱 재시작 시 자동 동기화됩니다.
+
+### 데이터 동기화
+
+- **Web App → 파일**: ResultScreen의 "Export Progress" 버튼으로 `progress.json` 다운로드
+- **파일 → Web App**: `progress.json`이 변경되면 dev 서버가 자동으로 데이터 반영
+- 병합 전략: 더 많은 attempts를 가진 데이터를 우선 채택
+
+### 키보드 단축키
+
+웹앱에서 `?` 키를 눌러 전체 키보드 단축키 목록을 확인할 수 있습니다.
+
 ## 기타 뷰
 
 - **[Printable Cheat Sheet (A4)](./cheatsheet.html)** - 인쇄용 단축키 모음
-- **[Interactive Checklist](./cheatsheet-checklist.html)** - 학습용 체크리스트 + 암기 팁 + 패턴 분석
+- **[Interactive Checklist](./cheatsheet-checklist.html)** - 학습용 체크리스트 + 암기 팁 + 패턴 분석 (독립 localStorage, Learning Loop 미연동)
+- **Progress Cheat Sheet** - `/shortcut:shortcut-cheatsheet --mode progress`로 생성. progress.json 기반 색상 코딩 반영
 
 ## 구조
 
 ```
 shortcuts/          YAML 데이터 (Single Source of Truth)
 app/                Shortcut Pro 웹앱 (React + Vite)
+progress.json       학습 진행 데이터 (Leitner Box, .gitignore 대상)
 cheatsheet.html     A4 인쇄용 치트시트
 ```
 

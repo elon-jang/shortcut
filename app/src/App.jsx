@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { Header, ProfileBanner, CategoryCard, ModeSelector, QuizCard, ResultScreen, Footer } from './components';
+import { Header, ProfileBanner, CategoryCard, ModeSelector, QuizCard, ResultScreen, Footer, KeyboardHelp } from './components';
 import { useUserData } from './hooks/useUserData';
 import { useGameState } from './hooks/useGameState';
 import { useKeyboard } from './hooks/useKeyboard';
@@ -7,7 +7,9 @@ import { normalizeKeys } from './utils/keyNormalization';
 import { SHORTCUT_DATA } from './data/shortcuts';
 
 function App() {
-  const { userData, levelProgress, updateXP, isTodayComplete, recordAttempt, getCategoryProgress, exportToFile, masteryStats, progress } = useUserData();
+  const { userData, levelProgress, updateXP, isTodayComplete, streak, syncInfo, recordAttempt, getCategoryProgress, exportToFile, masteryStats, progress } = useUserData();
+  const [showHelp, setShowHelp] = useState(false);
+  const [toast, setToast] = useState(null);
 
   const {
     gameState,
@@ -88,6 +90,7 @@ function App() {
           action: question.action,
           keys: question.keys,
           correct: finalCorrect,
+          retries: retryCount,
           prevBox,
           newBox: finalCorrect ? Math.min(prevBox + 1, 5) : 1,
         }]);
@@ -137,6 +140,15 @@ function App() {
     }
   }, [gameState, currentIndex]);
 
+  // Sync toast from progress.json merge
+  useEffect(() => {
+    if (syncInfo?.syncCount > 0) {
+      setToast(`CLI에서 ${syncInfo.syncCount}개 단축키 동기화됨`);
+      const t = setTimeout(() => setToast(null), 4000);
+      return () => clearTimeout(t);
+    }
+  }, [syncInfo]);
+
   // 타이머
   useEffect(() => {
     let timerId;
@@ -162,8 +174,20 @@ function App() {
   // ===== 네비게이션 단축키 =====
   useEffect(() => {
     const handleNavKey = (e) => {
-      // Esc: 한 단계 뒤로
+      // ?: 키보드 도움말 토글
+      if (e.key === '?' && !isTypingActive) {
+        e.preventDefault();
+        setShowHelp(h => !h);
+        return;
+      }
+
+      // Esc: 한 단계 뒤로 (또는 도움말 닫기)
       if (e.key === 'Escape') {
+        if (showHelp) {
+          e.preventDefault();
+          setShowHelp(false);
+          return;
+        }
         if (gameState === 'mode_select') {
           e.preventDefault();
           resetToMenu();
@@ -237,13 +261,13 @@ function App() {
 
     window.addEventListener('keydown', handleNavKey);
     return () => window.removeEventListener('keydown', handleNavKey);
-  }, [gameState, currentMode, isTypingActive, feedback, options, activeQuestions, currentIndex, cardFlipped, activeCategory, resetToMenu, goToModeSelect, startGame, processResult, setCardFlipped, handleFlashcardNext]);
+  }, [gameState, currentMode, isTypingActive, feedback, options, activeQuestions, currentIndex, cardFlipped, activeCategory, resetToMenu, goToModeSelect, startGame, processResult, setCardFlipped, handleFlashcardNext, showHelp]);
 
   return (
     <div className="min-h-screen bg-[#0b0f1a] text-slate-100 font-sans overflow-x-hidden">
       <div className="max-w-2xl mx-auto px-4 py-4 md:px-6">
         <Header
-          streak={userData.streak}
+          streak={streak}
           showHomeButton={gameState !== 'menu'}
           onHomeClick={resetToMenu}
         />
@@ -311,8 +335,18 @@ function App() {
           )}
         </main>
 
-        <Footer />
+        <Footer onHelpClick={() => setShowHelp(true)} />
       </div>
+
+      {/* Sync toast */}
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-lg animate-in slide-in-from-bottom-4 duration-300 z-50">
+          {toast}
+        </div>
+      )}
+
+      {/* Keyboard help overlay */}
+      {showHelp && <KeyboardHelp gameState={gameState} currentMode={currentMode} onClose={() => setShowHelp(false)} />}
     </div>
   );
 }
