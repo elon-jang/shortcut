@@ -4,16 +4,22 @@ shortcuts:
     items:
       - shortcut: Cmd+Space
         description: Raycast Launcher (런처 호출)
+        tip: "Spotlight 대체 — 설정에서 Spotlight 단축키 비활성화 필요"
 
   - section: App Hotkeys
     items:
       - shortcut: Opt+C
         description: Chrome 즉시 호출
+        tip: "C = Chrome (첫 글자)"
       - shortcut: Opt+F
         description: Finder 즉시 호출
+        tip: "F = Finder (첫 글자)"
       - shortcut: Opt+S
         description: Slack 즉시 호출
+        tip: "S = Slack (첫 글자)"
       - shortcut: Opt+V
         description: VS Code 즉시 호출
+        tip: "V = VS code (첫 글자)"
       - shortcut: Opt+W
         description: Warp(터미널) 즉시 호출
+        tip: "W = Warp (첫 글자)"

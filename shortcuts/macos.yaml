@@ -9,14 +9,18 @@ shortcuts:
     items:
       - shortcut: Cmd+O
         description: 파일/폴더 열기 (Open)
+        tip: "O = Open"
       - shortcut: Cmd+↓
         description: 파일 열기 / 폴더 진입
+        tip: "↓ = 안으로 들어가기"
       - shortcut: Cmd+↑
         description: 상위 폴더로 이동
+        tip: "↑ = 위로 나오기"
       - shortcut: Space
         description: 훑어보기 (Quick Look)
       - shortcut: Return
         description: 파일 이름 변경 (Rename)
+        tip: "Windows의 F2 역할 — Enter가 이름 변경이라는 점 주의"
       - shortcut: Cmd+Delete
         description: 파일 삭제 (휴지통 이동)
 
@@ -26,10 +30,13 @@ shortcuts:
         description: 앱 전환 (App Switcher)
       - shortcut: Cmd+~
         description: 같은 앱 내 창 전환
+        tip: "~ = Tab 바로 왼쪽 키. Cmd+Tab의 앱 내 버전"
       - shortcut: Ctrl+↑
         description: Mission Control (모든 창 보기)
+        tip: "↑ = 위로 펼쳐서 전체 보기"
       - shortcut: Ctrl+↓
         description: App Exposé (현재 앱 창 모아보기)
+        tip: "↓ = 현재 앱만 아래로 펼치기"
       - shortcut: Ctrl+←/→
         description: 데스크탑(Space) 간 전환
 

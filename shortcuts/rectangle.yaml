@@ -4,8 +4,10 @@ shortcuts:
     items:
       - shortcut: Ctrl+Opt+←
         description: Left Half (왼쪽 절반)
+        tip: "← 방향 그대로 왼쪽 절반"
       - shortcut: Ctrl+Opt+→
         description: Right Half (오른쪽 절반)
+        tip: "→ 방향 그대로 오른쪽 절반"
       - shortcut: Ctrl+Opt+↑
         description: Top Half (상단 절반)
       - shortcut: Ctrl+Opt+↓
@@ -15,16 +17,22 @@ shortcuts:
     items:
       - shortcut: Ctrl+Opt+Return
         description: Maximize (최대화)
+        tip: "Return = 가득 채우기"
       - shortcut: Ctrl+Opt+Shift+↑
         description: Maximize Height (높이 최대화)
+        tip: "Shift+↑ = 세로만 최대화"
       - shortcut: Ctrl+Opt+C
         description: Center (중앙 배치)
+        tip: "C = Center"
       - shortcut: Ctrl+Opt+⌫
         description: Restore (원래 크기 복원)
+        tip: "Delete = 되돌리기"
 
   - section: Multi Display
     items:
       - shortcut: Ctrl+Opt+Cmd+→
         description: Next Display (다음 모니터)
+        tip: "Cmd 추가 = 모니터 이동"
       - shortcut: Ctrl+Opt+Cmd+←
         description: Previous Display (이전 모니터)
+        tip: "Cmd 추가 = 모니터 이동"

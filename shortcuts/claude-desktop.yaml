@@ -4,21 +4,28 @@ shortcuts:
     items:
       - shortcut: Ctrl+Cmd+K
         description: Quick chat - 어디서든 Claude 호출 (글로벌)
+        tip: "앱 밖에서도 작동하는 유일한 전역 단축키"
 
   - section: General
     items:
       - shortcut: Cmd+,
         description: 설정 열기
+        tip: ", = 설정(macOS 앱 표준)"
       - shortcut: Cmd+K
         description: 새 채팅 시작
+        tip: "K = 새 대화 시작"
       - shortcut: Shift+Cmd+I
         description: 시크릿 채팅 (Incognito chat)
+        tip: "I = Incognito"
       - shortcut: Cmd+.
         description: 사이드바 토글 (히스토리 표시/숨김)
+        tip: ". = 점 하나로 접기"
       - shortcut: Cmd+/
         description: 명령어 팔레트 (전체 단축키 가이드)
+        tip: "/ = 슬래시 명령 팔레트"
 
   - section: Input
     items:
       - shortcut: Shift+Enter
         description: 줄바꿈 (전송하지 않고 다음 줄로)
+        tip: "Shift = 전송 대신 줄바꿈"

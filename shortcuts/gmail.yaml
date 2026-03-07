@@ -4,6 +4,7 @@ shortcuts:
     items:
       - shortcut: C
         description: 새 메일 작성
+        tip: "C = Compose"
       - shortcut: Cmd+Enter
         description: 메일 보내기
 
@@ -11,20 +12,28 @@ shortcuts:
     items:
       - shortcut: /
         description: 검색창으로 이동
+        tip: "Vim의 검색 단축키와 동일"
       - shortcut: J
         description: 다음 메일로 이동 (아래)
+        tip: "J = 아래(다음) — Vim hjkl 방향키"
       - shortcut: K
         description: 이전 메일로 이동 (위)
+        tip: "K = 위(이전) — Vim hjkl 방향키"
       - shortcut: X
         description: 메일 선택/해제 (체크박스 토글)
+        tip: "X = 체크(X 표시로 선택)"
       - shortcut: U
         description: 메일 목록으로 돌아가기
+        tip: "U = back Up to list"
 
   - section: Actions
     items:
       - shortcut: R
         description: 답장하기 (Reply)
+        tip: "R = Reply"
       - shortcut: Shift+#
         description: 메일 삭제 (휴지통으로 이동)
+        tip: "# = 삭제 기호"
       - shortcut: V
         description: 이동 메뉴 열기 (Move to)
+        tip: "V = moVe (끝 글자)"

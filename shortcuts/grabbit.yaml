@@ -4,3 +4,4 @@ shortcuts:
     items:
       - shortcut: Opt+왼쪽마우스
         description: Copy URLs to clipboard (URL 클립보드 복사)
+        tip: "Opt 누른 채 드래그 → 영역 내 링크 전체 선택"

@@ -9,22 +9,28 @@ shortcuts:
     items:
       - shortcut: Cmd+G
         description: 검색 (Search)
+        tip: "G = Go (검색으로 이동)"
 
   - section: Navigation
     items:
       - shortcut: Cmd+K
         description: 퀵 스위처 - 채널/동료 이름 검색해서 바로 이동
+        tip: "Chrome Cmd+L, VS Code Cmd+P와 같은 퀵 점프 역할"
       - shortcut: Cmd+[
         description: 뒤로 가기 - 방금 봤던 이전 채널로 복귀
+        tip: "[ = 왼쪽(뒤로)"
       - shortcut: Opt+Shift+↓
         description: 안 읽은 메시지 순서대로 순회
+        tip: "읽지 않은 채널을 위에서 아래로 순서대로 이동"
 
   - section: Message Control
     items:
       - shortcut: E
         description: 메시지 수정 (파란 테두리 선택 모드에서)
+        tip: "E = Edit"
       - shortcut: T
         description: 스레드 열기/댓글 달기 (파란 테두리 선택 모드에서)
+        tip: "T = Thread"
       - shortcut: Delete (⌫)
         description: 메시지 삭제 (파란 테두리 선택 모드에서)
 
@@ -32,15 +38,19 @@ shortcuts:
     items:
       - shortcut: ↑
         description: 내가 방금 쓴 마지막 메시지 수정 (입력창 포커스 상태)
+        tip: "입력창이 비어있어야 동작"
       - shortcut: Esc
         description: 현재 채널 읽음 처리 후 입력창 밖으로 나감
+        tip: "현재 채널만 읽음 처리. 전체는 Shift+Esc"
 
   - section: View
     items:
       - shortcut: Cmd+Shift+D
         description: 사이드바 열기/접기 - 채널 리스트를 숨겨서 화면을 넓게 사용
+        tip: "D = ? 토글 방향이 반대인 점 주의"
 
   - section: Notifications
     items:
       - shortcut: Shift+Esc
         description: 모두 읽음 처리 - 슬랙 전체 알림 배지 삭제
+        tip: "Esc는 현재 채널만, Shift+Esc는 슬랙 전체"
