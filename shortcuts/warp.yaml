@@ -27,16 +27,13 @@ shortcuts:
         description: 특정 탭으로 바로 이동
       - shortcut: Cmd+D
         description: 우측 분할 (Split Right)
-        tip: "D = Divide"
       - shortcut: Cmd+Shift+D
         description: 하단 분할 (Split Bottom)
         tip: "Shift = 방향 전환 (우측→하단)"
       - shortcut: Cmd+[
         description: 이전 창(Pane) 이동
-        tip: "[ = 왼쪽(이전)"
       - shortcut: Cmd+]
         description: 다음 창(Pane) 이동
-        tip: "] = 오른쪽(다음)"
       - shortcut: Cmd+P
         description: 명령어 팔레트
 
@@ -44,7 +41,6 @@ shortcuts:
     items:
       - shortcut: Shift+Opt+R
         description: 워크플로우 검색 및 실행 (커스텀)
-        tip: "R = Run workflow"
       - shortcut: Cmd+\
         description: Warp Drive 관리 패널
 
@@ -52,7 +48,6 @@ shortcuts:
     items:
       - shortcut: Shift+Cmd+E
         description: 파일 탐색기 (File explorer)
-        tip: "E = Explorer"
       - shortcut: Shift+Cmd++
         description: 변경사항 보기 (View changes)
 

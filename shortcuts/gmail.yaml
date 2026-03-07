@@ -4,7 +4,6 @@ shortcuts:
     items:
       - shortcut: C
         description: 새 메일 작성
-        tip: "C = Compose"
       - shortcut: Cmd+Enter
         description: 메일 보내기
 
@@ -30,7 +29,6 @@ shortcuts:
     items:
       - shortcut: R
         description: 답장하기 (Reply)
-        tip: "R = Reply"
       - shortcut: Shift+#
         description: 메일 삭제 (휴지통으로 이동)
         tip: "# = 삭제 기호"

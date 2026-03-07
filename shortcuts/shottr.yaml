@@ -4,10 +4,8 @@ shortcuts:
     items:
       - shortcut: Shift+Cmd+1
         description: Fullscreen screenshot (전체 화면)
-        tip: "1 = 전체(첫 번째)"
       - shortcut: Shift+Cmd+2
         description: Area screenshot (영역 선택)
-        tip: "2 = 영역 선택(두 번째)"
       - shortcut: Shift+Cmd+7
         description: Any window screenshot (윈도우 선택)
       - shortcut: Shift+Cmd+8
@@ -15,7 +13,6 @@ shortcuts:
         tip: "7=선택 윈도우, 8=현재 활성 윈도우"
       - shortcut: Shift+Cmd+9
         description: Scrolling screenshot (스크롤 캡처)
-        tip: "9 = 마지막 번호 = 가장 긴 캡처"
 
   - section: App
     items:
@@ -26,4 +23,3 @@ shortcuts:
     items:
       - shortcut: Ctrl+Opt+Cmd+O
         description: Instant Text/QR Recognition (텍스트/QR 인식)
-        tip: "O = OCR"

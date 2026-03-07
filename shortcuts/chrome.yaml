@@ -4,7 +4,6 @@ shortcuts:
     items:
       - shortcut: Cmd+L
         description: 주소창 포커스 (URL 입력/복사)
-        tip: "L = Location bar"
       - shortcut: Opt+Return
         description: 탭 복제 및 즉시 이동 (Cmd+L 후)
         tip: "Cmd+L로 URL 수정 후 Opt+Enter → 새 탭에서 열기"
@@ -19,10 +18,8 @@ shortcuts:
     items:
       - shortcut: Cmd+T
         description: 새 탭 열기
-        tip: "T = Tab"
       - shortcut: Cmd+W
         description: 현재 탭 닫기
-        tip: "W = Window close"
       - shortcut: Cmd+Shift+T
         description: 마지막으로 닫은 탭 다시 열기
         tip: "Shift = 반대 방향(되돌리기)"
@@ -45,6 +42,5 @@ shortcuts:
         tip: "[ = 왼쪽(뒤로), ] = 오른쪽(앞으로)"
       - shortcut: Cmd+R
         description: 새로고침
-        tip: "R = Reload"
       - shortcut: Esc
         description: 페이지 로딩 중지

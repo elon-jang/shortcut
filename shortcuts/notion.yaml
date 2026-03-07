@@ -22,10 +22,8 @@ shortcuts:
     items:
       - shortcut: Cmd+/
         description: Turn into (블록 타입 변경 메뉴)
-        tip: "/ = 슬래시 명령(블록 메뉴)"
       - shortcut: Cmd+D
         description: Duplicate (블록 복제)
-        tip: "D = Duplicate"
       - shortcut: Cmd+Enter
         description: 완료 및 새 창 열기 (DB 항목 열기)
       - shortcut: Cmd+K
@@ -36,4 +34,3 @@ shortcuts:
         tip: "0=일반텍스트, 1=H1, 2=H2, 3=H3"
       - shortcut: Cmd+Shift+↑/↓
         description: Move block (블록 위/아래 이동)
-        tip: "Shift = 블록 단위 이동"

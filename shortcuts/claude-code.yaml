@@ -31,4 +31,3 @@ shortcuts:
         tip: "A = 알파벳 첫 글자 → 줄의 처음"
       - shortcut: Ctrl+E
         description: 줄 끝으로 이동
-        tip: "E = End"
