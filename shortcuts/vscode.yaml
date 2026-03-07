@@ -20,3 +20,5 @@ shortcuts:
         description: 터미널 열기/닫기
       - shortcut: Cmd+\
         description: Split Right
+      - shortcut: Cmd+B
+        description: 왼쪽 사이드바 열기/닫기
