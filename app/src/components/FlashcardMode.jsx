@@ -1,6 +1,6 @@
 import { Eye } from 'lucide-react';
 
-export const FlashcardMode = ({ answer, flipped, feedback, onFlip, onCorrect, onSkip }) => {
+export const FlashcardMode = ({ answer, tip, flipped, feedback, onFlip, onCorrect, onSkip }) => {
   return (
     <div className="perspective-2000 relative z-50 min-h-[140px] md:min-h-[160px]">
       <div className={`relative w-full h-full min-h-[140px] md:min-h-[160px] transition-all duration-500 preserve-3d ${flipped ? 'rotate-y-180' : ''}`}>
@@ -21,6 +21,11 @@ export const FlashcardMode = ({ answer, flipped, feedback, onFlip, onCorrect, on
           <span className="text-2xl md:text-3xl font-mono font-black text-indigo-400 tracking-tight">
             {answer}
           </span>
+          {tip && (
+            <p className="text-xs text-amber-300/70 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-1.5 max-w-[80%] text-center">
+              💡 {tip}
+            </p>
+          )}
           <div className="flex gap-3">
             <button
               onClick={(e) => { e.stopPropagation(); onSkip(); }}

@@ -20,5 +20,7 @@ shortcuts:
         description: 터미널 열기/닫기
       - shortcut: Cmd+\
         description: Split Right
+        tip: "\ = 화면을 '나누는' 슬래시 방향"
       - shortcut: Cmd+B
         description: 왼쪽 사이드바 열기/닫기
+        tip: "B = Bar 토글"

@@ -145,6 +145,7 @@ function loadShortcuts() {
           action: item.description,
           keys: formatKeys(item.shortcut),
           typeable: isTypeable(item.shortcut),
+          tip: item.tip || null,
         });
         index++;
       }
@@ -205,6 +206,62 @@ export const INITIAL_PROGRESS = ${JSON.stringify(progress)};`;
     configureServer(server) {
       if (!fs.existsSync(YAML_DIR)) return;
 
+      // POST /api/save-progress — read-merge-write
+      server.middlewares.use('/api/save-progress', (req, res, next) => {
+        if (req.method !== 'POST') return next();
+
+        let body = '';
+        req.on('data', chunk => { body += chunk; });
+        req.on('end', () => {
+          try {
+            const incoming = JSON.parse(body);
+
+            // Read existing file
+            let existing = null;
+            try {
+              if (fs.existsSync(PROGRESS_FILE)) {
+                existing = JSON.parse(fs.readFileSync(PROGRESS_FILE, 'utf-8'));
+              }
+            } catch { /* ignore */ }
+
+            // Merge: higher attempts wins per shortcut
+            let result = incoming;
+            if (existing && existing.shortcuts) {
+              const merged = { ...incoming, shortcuts: { ...incoming.shortcuts } };
+              for (const [key, val] of Object.entries(existing.shortcuts)) {
+                if (!merged.shortcuts[key]) {
+                  merged.shortcuts[key] = val;
+                } else if (val.attempts > merged.shortcuts[key].attempts) {
+                  merged.shortcuts[key] = val;
+                }
+              }
+              if (existing.stats) {
+                merged.stats.totalReviews = Math.max(
+                  merged.stats.totalReviews || 0,
+                  existing.stats.totalReviews || 0
+                );
+                if ((existing.stats.streak || 0) > (merged.stats.streak || 0)) {
+                  merged.stats.streak = existing.stats.streak;
+                }
+              }
+              result = merged;
+            }
+
+            result.lastUpdated = new Date().toISOString();
+            skipNextProgressReload = true;
+            fs.writeFileSync(PROGRESS_FILE, JSON.stringify(result, null, 2));
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ ok: true }));
+          } catch (e) {
+            res.statusCode = 400;
+            res.end(JSON.stringify({ error: e.message }));
+          }
+        });
+      });
+
+      // 자체 저장 후 watcher reload 방지 플래그
+      let skipNextProgressReload = false;
+
       // YAML 디렉토리 + progress.json 감시
       server.watcher.add(YAML_DIR);
       server.watcher.add(PROGRESS_FILE);
@@ -218,8 +275,12 @@ export const INITIAL_PROGRESS = ${JSON.stringify(progress)};`;
       };
 
       const handleChange = (filePath) => {
-        // progress.json 변경
+        // progress.json 변경 — 자체 저장이면 리로드 스킵
         if (filePath === PROGRESS_FILE) {
+          if (skipNextProgressReload) {
+            skipNextProgressReload = false;
+            return;
+          }
           invalidateAndReload();
           return;
         }
