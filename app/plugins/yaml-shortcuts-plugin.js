@@ -141,6 +141,7 @@ function loadShortcuts() {
         }
         items.push({
           id: item.shortcut,
+          section: section.section || null,
           action: item.description,
           keys: formatKeys(item.shortcut),
           typeable: isTypeable(item.shortcut),

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { ArrowLeft, ChevronRight, Zap, Keyboard, BookOpen } from 'lucide-react';
+import { ArrowLeft, ChevronRight, Zap, Keyboard, BookOpen, List } from 'lucide-react';
 import { MODES, SHORTCUT_DATA } from '../data/shortcuts';
 
 const MODE_ICONS = {
@@ -8,7 +8,7 @@ const MODE_ICONS = {
   flashcard: <BookOpen size={18} />
 };
 
-export const ModeSelector = ({ activeCategory, onBack, onStartGame }) => {
+export const ModeSelector = ({ activeCategory, onBack, onStartGame, onViewList }) => {
   const typingInfo = useMemo(() => {
     if (!activeCategory) return { total: 0, typeable: 0 };
     const shortcuts = SHORTCUT_DATA[activeCategory.id] || [];
@@ -32,7 +32,16 @@ export const ModeSelector = ({ activeCategory, onBack, onStartGame }) => {
         <div className="text-center mb-6">
           <span className="text-4xl md:text-5xl block mb-2">{activeCategory?.icon}</span>
           <h2 className="text-xl md:text-2xl font-black tracking-tight mb-1">{activeCategory?.name}</h2>
-          <p className="text-xs md:text-sm text-slate-400">모드를 선택하세요</p>
+          <div className="flex items-center justify-center gap-2">
+            <p className="text-xs md:text-sm text-slate-400">모드를 선택하세요</p>
+            <button
+              onClick={onViewList}
+              className="flex items-center gap-1 text-slate-600 hover:text-slate-300 transition-colors"
+            >
+              <List size={12} />
+              <span className="text-[11px] font-medium">전체 보기</span>
+            </button>
+          </div>
         </div>
         <div className="grid gap-2.5 md:gap-3">
           {MODES.map((m, i) => {
@@ -69,6 +78,7 @@ export const ModeSelector = ({ activeCategory, onBack, onStartGame }) => {
             );
           })}
         </div>
+
       </div>
     </div>
   );

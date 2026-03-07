@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { Header, ProfileBanner, CategoryCard, ModeSelector, QuizCard, ResultScreen, Footer, KeyboardHelp } from './components';
+import { Header, ProfileBanner, CategoryCard, ModeSelector, QuizCard, ResultScreen, Footer, KeyboardHelp, ShortcutList } from './components';
 import { useUserData } from './hooks/useUserData';
 import { useGameState } from './hooks/useGameState';
 import { useKeyboard } from './hooks/useKeyboard';
@@ -42,6 +42,7 @@ function App() {
 
   const [retryCount, setRetryCount] = useState(0);
   const [sessionResults, setSessionResults] = useState([]);
+  const [listReturnState, setListReturnState] = useState('mode_select');
 
   // Track gameState in ref for setTimeout guards
   const gameStateRef = useRef(gameState);
@@ -204,6 +205,9 @@ function App() {
         } else if (gameState === 'result') {
           e.preventDefault();
           goToModeSelect();
+        } else if (gameState === 'reference') {
+          e.preventDefault();
+          setGameState(listReturnState);
         }
         return;
       }
@@ -268,7 +272,7 @@ function App() {
 
     window.addEventListener('keydown', handleNavKey);
     return () => window.removeEventListener('keydown', handleNavKey);
-  }, [gameState, currentMode, isTypingActive, feedback, options, activeQuestions, currentIndex, cardFlipped, activeCategory, resetToMenu, goToModeSelect, startGame, processResult, setCardFlipped, handleFlashcardNext, showHelp]);
+  }, [gameState, currentMode, isTypingActive, feedback, options, activeQuestions, currentIndex, cardFlipped, activeCategory, resetToMenu, goToModeSelect, startGame, processResult, setCardFlipped, handleFlashcardNext, showHelp, listReturnState]);
 
   return (
     <div className="min-h-screen bg-[#0b0f1a] text-slate-100 font-sans overflow-x-hidden">
@@ -302,6 +306,15 @@ function App() {
               activeCategory={activeCategory}
               onBack={resetToMenu}
               onStartGame={startGame}
+              onViewList={() => { setListReturnState('mode_select'); setGameState('reference'); }}
+            />
+          )}
+
+          {gameState === 'reference' && (
+            <ShortcutList
+              activeCategory={activeCategory}
+              onBack={() => setGameState(listReturnState)}
+              progress={progress}
             />
           )}
 
@@ -336,6 +349,7 @@ function App() {
               onRestart={() => startGame(currentMode)}
               onModeSelect={goToModeSelect}
               onMenu={resetToMenu}
+              onViewList={() => { setListReturnState('result'); setGameState('reference'); }}
               sessionResults={sessionResults}
             />
           )}

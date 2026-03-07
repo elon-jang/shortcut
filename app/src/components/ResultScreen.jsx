@@ -1,6 +1,6 @@
-import { Trophy, RotateCcw, Layers, Home, ArrowUp, ArrowDown } from 'lucide-react';
+import { Trophy, RotateCcw, Layers, Home, ArrowUp, ArrowDown, List } from 'lucide-react';
 
-export const ResultScreen = ({ activeCategory, score, timer, missCount = 0, totalQuestions = 0, onRestart, onModeSelect, onMenu, sessionResults = [] }) => {
+export const ResultScreen = ({ activeCategory, score, timer, missCount = 0, totalQuestions = 0, onRestart, onModeSelect, onMenu, onViewList, sessionResults = [] }) => {
   const accuracy = totalQuestions > 0 ? Math.round(((totalQuestions - missCount) / totalQuestions) * 100) : 100;
   const perfectCount = sessionResults.filter(r => r.correct && !r.retries).length;
   const retriedCount = sessionResults.filter(r => r.correct && r.retries > 0).length;
@@ -98,6 +98,12 @@ export const ResultScreen = ({ activeCategory, score, timer, missCount = 0, tota
             <Home size={14} /> 메뉴
           </button>
         </div>
+        <button
+          onClick={onViewList}
+          className="w-full py-2 flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-400 transition-colors text-xs font-medium"
+        >
+          <List size={12} /> 전체 단축키 보기
+        </button>
       </div>
     </div>
   );
