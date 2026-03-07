@@ -22,7 +22,7 @@ const CATEGORY_META = {
   'claude-desktop': { icon: '🧠', color: 'bg-violet-500',  text: 'text-violet-400',  desc: 'AI 데스크톱 파트너' },
   'rectangle':      { icon: '🪟', color: 'bg-green-500',   text: 'text-green-400',   desc: '창 관리의 달인' },
   'shottr':         { icon: '📸', color: 'bg-pink-500',    text: 'text-pink-400',    desc: '스크린샷 마스터' },
-  'grabbit':        { icon: '🎨', color: 'bg-cyan-500',    text: 'text-cyan-400',    desc: '컬러 피킹 도구' },
+  'grabbit':        { icon: '🐙', color: 'bg-cyan-500',    text: 'text-cyan-400',    desc: '드래그로 링크 일괄 복사/열기' },
   'aula-f87':       { icon: '⌨️', color: 'bg-amber-500',   text: 'text-amber-400',   desc: '키보드 커스터마이징' },
 };
 
