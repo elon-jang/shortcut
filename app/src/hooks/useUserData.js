@@ -99,7 +99,21 @@ export const useUserData = () => {
   // Get full progress data
   const getProgress = useCallback(() => progress, [progress]);
 
-  // Export progress as progress.json format
+  // Auto-save to progress.json via dev server (read-merge-write)
+  const saveToFile = useCallback(async () => {
+    try {
+      const res = await fetch('/api/save-progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(progress),
+      });
+      return res.ok;
+    } catch {
+      return false;
+    }
+  }, [progress]);
+
+  // Download progress.json as file (fallback / backup)
   const exportToFile = useCallback(() => {
     const blob = new Blob([JSON.stringify(progress, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -127,6 +141,7 @@ export const useUserData = () => {
     recordAttempt,
     getCategoryProgress,
     getProgress,
+    saveToFile,
     exportToFile,
     masteryStats,
     progress,

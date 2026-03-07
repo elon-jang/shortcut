@@ -7,7 +7,7 @@ import { normalizeKeys } from './utils/keyNormalization';
 import { SHORTCUT_DATA } from './data/shortcuts';
 
 function App() {
-  const { userData, levelProgress, updateXP, isTodayComplete, streak, syncInfo, recordAttempt, getCategoryProgress, exportToFile, masteryStats, progress } = useUserData();
+  const { userData, levelProgress, updateXP, isTodayComplete, streak, syncInfo, recordAttempt, getCategoryProgress, saveToFile, masteryStats, progress } = useUserData();
   const [showHelp, setShowHelp] = useState(false);
   const [toast, setToast] = useState(null);
 
@@ -139,6 +139,13 @@ function App() {
       setSessionResults([]);
     }
   }, [gameState, currentIndex]);
+
+  // Auto-save progress to file when session ends
+  useEffect(() => {
+    if (gameState === 'result') {
+      saveToFile();
+    }
+  }, [gameState, saveToFile]);
 
   // Sync toast from progress.json merge
   useEffect(() => {
@@ -330,7 +337,6 @@ function App() {
               onModeSelect={goToModeSelect}
               onMenu={resetToMenu}
               sessionResults={sessionResults}
-              onExport={exportToFile}
             />
           )}
         </main>

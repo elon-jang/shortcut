@@ -1,6 +1,6 @@
-import { Trophy, RotateCcw, Layers, Home, Download, ArrowUp, ArrowDown } from 'lucide-react';
+import { Trophy, RotateCcw, Layers, Home, ArrowUp, ArrowDown } from 'lucide-react';
 
-export const ResultScreen = ({ activeCategory, score, timer, missCount = 0, totalQuestions = 0, onRestart, onModeSelect, onMenu, sessionResults = [], onExport }) => {
+export const ResultScreen = ({ activeCategory, score, timer, missCount = 0, totalQuestions = 0, onRestart, onModeSelect, onMenu, sessionResults = [] }) => {
   const accuracy = totalQuestions > 0 ? Math.round(((totalQuestions - missCount) / totalQuestions) * 100) : 100;
   const perfectCount = sessionResults.filter(r => r.correct && !r.retries).length;
   const retriedCount = sessionResults.filter(r => r.correct && r.retries > 0).length;
@@ -98,14 +98,6 @@ export const ResultScreen = ({ activeCategory, score, timer, missCount = 0, tota
             <Home size={14} /> 메뉴
           </button>
         </div>
-        {onExport && (
-          <button
-            onClick={onExport}
-            className="w-full py-2 bg-slate-900/60 hover:bg-slate-800 rounded-xl text-xs md:text-sm font-bold border border-slate-700/50 transition-all flex items-center justify-center gap-2 text-slate-500 hover:text-slate-300 active:scale-[0.97]"
-          >
-            <Download size={12} /> Export Progress
-          </button>
-        )}
       </div>
     </div>
   );

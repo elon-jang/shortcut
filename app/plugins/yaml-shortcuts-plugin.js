@@ -132,7 +132,6 @@ function loadShortcuts() {
 
     // 단축키 변환 (with per-item validation)
     const items = [];
-    let index = 0;
     for (const section of data.shortcuts) {
       if (!section.items || !Array.isArray(section.items)) continue;
       for (const item of section.items) {
@@ -141,13 +140,12 @@ function loadShortcuts() {
           continue;
         }
         items.push({
-          id: `${categoryId}-${index}`,
+          id: item.shortcut,
           action: item.description,
           keys: formatKeys(item.shortcut),
           typeable: isTypeable(item.shortcut),
           tip: item.tip || null,
         });
-        index++;
       }
     }
     shortcutData[categoryId] = items;
