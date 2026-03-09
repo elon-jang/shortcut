@@ -29,6 +29,8 @@ shortcuts:
         description: 스레드 열기/댓글 달기 (파란 테두리 선택 모드에서)
       - shortcut: Delete (⌫)
         description: 메시지 삭제 (파란 테두리 선택 모드에서)
+      - shortcut: F
+        description: 메시지 전달 (파란 테두리 선택 모드에서)
 
   - section: Input Field
     items:
