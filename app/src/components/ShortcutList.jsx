@@ -36,8 +36,8 @@ export const ShortcutList = ({ activeCategory, onBack, progress }) => {
         <span className="ml-1 text-[10px] text-slate-600 font-mono">Esc</span>
       </button>
 
-      <div className="bg-slate-800/80 border border-slate-700 rounded-2xl shadow-xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-slate-700/50 flex items-center gap-3">
+      <div className="bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-700/50 flex items-center gap-3">
           <span className="text-3xl">{activeCategory?.icon}</span>
           <div>
             <h2 className="font-black text-base md:text-lg">{activeCategory?.name}</h2>
@@ -45,20 +45,20 @@ export const ShortcutList = ({ activeCategory, onBack, progress }) => {
           </div>
         </div>
 
-        <div className="divide-y divide-slate-700/30">
+        <div className="divide-y divide-slate-200 dark:divide-slate-700/30">
           {Object.entries(sections).map(([section, items]) => (
             <div key={section}>
               {showSectionHeaders && (
-                <div className="px-6 py-2 bg-slate-900/40">
+                <div className="px-6 py-2 bg-slate-50 dark:bg-slate-900/40">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500">{section}</p>
                 </div>
               )}
               {items.map((s) => {
                 const box = getBox(s.id);
                 return (
-                  <div key={s.id} className="flex items-center gap-4 px-6 py-3 hover:bg-slate-700/20 transition-colors">
+                  <div key={s.id} className="flex items-center gap-4 px-6 py-3 hover:bg-slate-100 dark:hover:bg-slate-700/20 transition-colors">
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-slate-200 truncate">{s.action}</p>
+                      <p className="text-sm font-medium text-slate-800 dark:text-slate-200 truncate">{s.action}</p>
                       {s.tip && (
                         <p className="text-[11px] text-amber-400/70 mt-0.5 truncate">💡 {s.tip}</p>
                       )}
@@ -67,7 +67,7 @@ export const ShortcutList = ({ activeCategory, onBack, progress }) => {
                       {box && (
                         <span className={`text-[10px] font-bold font-mono ${BOX_COLORS[box]}`}>B{box}</span>
                       )}
-                      <kbd className="px-2.5 py-1 bg-slate-900 border border-slate-600 rounded-lg font-mono text-xs font-bold text-indigo-300 whitespace-nowrap">
+                      <kbd className="px-2.5 py-1 bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-xs font-bold text-indigo-600 dark:text-indigo-300 whitespace-nowrap">
                         {s.keys}
                       </kbd>
                     </div>
