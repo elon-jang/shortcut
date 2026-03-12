@@ -10,8 +10,8 @@ export const ChoiceMode = ({ options, correctAnswer, feedback, onAnswer }) => {
             feedback === 'correct' && opt === correctAnswer
               ? 'bg-green-600/80 border-green-400 text-white'
               : feedback === 'retry' && opt !== correctAnswer
-              ? 'bg-slate-700/30 border-slate-700 opacity-30'
-              : 'bg-slate-900/50 border-slate-700/60 hover:border-indigo-500/60 hover:bg-slate-800 active:scale-[0.97] text-slate-200'
+              ? 'bg-slate-200/50 dark:bg-slate-700/30 border-slate-300 dark:border-slate-700 opacity-30'
+              : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700/60 hover:border-indigo-500/60 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-[0.97] text-slate-800 dark:text-slate-200'
           }`}
         >
           <span className={`text-xs md:text-sm font-mono shrink-0 ${
