@@ -18,7 +18,7 @@ export const CategoryCard = ({ searchQuery, setSearchQuery, onSelectCategory, ge
             type="text"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            className="bg-slate-800/50 border border-slate-700 rounded-lg py-2 pl-9 pr-3 text-sm md:text-base focus:ring-1 focus:ring-indigo-500/40 outline-none w-full transition-all"
+            className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg py-2 pl-9 pr-3 text-sm md:text-base text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:ring-1 focus:ring-indigo-500/40 outline-none w-full transition-all"
             placeholder="검색..."
           />
         </div>
@@ -34,12 +34,12 @@ export const CategoryCard = ({ searchQuery, setSearchQuery, onSelectCategory, ge
             <button
               key={cat.id}
               onClick={() => onSelectCategory(cat.id)}
-              className="group bg-slate-800/30 px-4 py-3 md:py-3.5 rounded-xl border border-slate-700/60 hover:border-indigo-500/60 hover:bg-slate-800/60 transition-all text-left flex items-center gap-3"
+              className="group bg-white/60 dark:bg-slate-800/30 px-4 py-3 md:py-3.5 rounded-xl border border-slate-200 dark:border-slate-700/60 hover:border-indigo-500/60 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all text-left flex items-center gap-3"
             >
               <span className="text-2xl md:text-3xl shrink-0 group-hover:scale-110 transition-transform duration-300">{cat.icon}</span>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <h4 className="font-bold text-sm md:text-base group-hover:text-indigo-300 transition-colors truncate">{cat.name}</h4>
+                  <h4 className="font-bold text-sm md:text-base group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors truncate">{cat.name}</h4>
                   {mastered > 0 && (
                     <span className="text-[9px] md:text-[10px] font-bold text-emerald-400/80 shrink-0">
                       {mastered}/{totalShortcuts}
@@ -48,7 +48,7 @@ export const CategoryCard = ({ searchQuery, setSearchQuery, onSelectCategory, ge
                 </div>
                 <p className="text-[11px] md:text-xs text-slate-500 truncate">{cat.desc}</p>
                 {mastered > 0 && (
-                  <div className="w-full h-1 bg-slate-700/50 rounded-full mt-1.5 overflow-hidden">
+                  <div className="w-full h-1 bg-slate-200 dark:bg-slate-700/50 rounded-full mt-1.5 overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-emerald-500 to-green-400 transition-all duration-500"
                       style={{ width: `${pct}%` }}
@@ -56,7 +56,7 @@ export const CategoryCard = ({ searchQuery, setSearchQuery, onSelectCategory, ge
                   </div>
                 )}
               </div>
-              <ChevronRight size={14} className="text-slate-700 group-hover:text-indigo-400 shrink-0 transition-colors" />
+              <ChevronRight size={14} className="text-slate-400 dark:text-slate-700 group-hover:text-indigo-400 shrink-0 transition-colors" />
             </button>
           );
         })}
