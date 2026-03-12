@@ -18,6 +18,8 @@ shortcuts:
       - shortcut: Return
         description: 파일 이름 변경 (Rename)
         tip: "Windows의 F2 역할 — Enter가 이름 변경이라는 점 주의"
+      - shortcut: Cmd+Opt+C
+        description: 파일 경로 복사 (Copy Path)
       - shortcut: Cmd+Shift+G
         description: Go to Folder (폴더로 이동)
       - shortcut: Cmd+Delete
