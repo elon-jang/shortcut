@@ -33,7 +33,7 @@ export const ShortcutList = ({ activeCategory, onBack, progress }) => {
         className="flex items-center gap-1.5 text-slate-500 hover:text-indigo-400 mb-5 text-xs md:text-sm font-bold transition-colors"
       >
         <ArrowLeft size={14} /> 뒤로
-        <span className="ml-1 text-[10px] text-slate-600 font-mono">Esc</span>
+        <span className="ml-1 text-[10px] text-slate-400 dark:text-slate-600 font-mono">Esc</span>
       </button>
 
       <div className="bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl overflow-hidden">

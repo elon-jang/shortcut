@@ -78,7 +78,7 @@ export const ResultScreen = ({ activeCategory, score, timer, missCount = 0, tota
       <div className="space-y-2">
         <button
           onClick={onRestart}
-          className="w-full py-2.5 md:py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-bold text-sm md:text-base transition-all flex items-center justify-center gap-2 active:scale-[0.97]"
+          className="w-full py-2.5 md:py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-bold text-sm md:text-base text-white transition-all flex items-center justify-center gap-2 active:scale-[0.97]"
         >
           <RotateCcw size={14} /> 다시 수련
           <span className="text-[10px] text-indigo-300/40 font-mono ml-1">Enter</span>
