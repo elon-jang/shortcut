@@ -1,6 +1,6 @@
-import { Rocket, Flame, Home } from 'lucide-react';
+import { Rocket, Flame, Home, Sun, Moon } from 'lucide-react';
 
-export const Header = ({ streak, showHomeButton, onHomeClick }) => {
+export const Header = ({ streak, showHomeButton, onHomeClick, theme, onToggleTheme }) => {
   return (
     <header className="flex justify-between items-center mb-5">
       <div
@@ -21,16 +21,26 @@ export const Header = ({ streak, showHomeButton, onHomeClick }) => {
       </div>
 
       <div className="flex items-center gap-2">
-        <div className="flex items-center gap-1.5 bg-slate-800/80 backdrop-blur-md border border-slate-700 px-3 py-1.5 rounded-lg">
+        <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-lg">
           <Flame size={14} className="text-orange-500" />
-          <span className="text-xs md:text-sm font-bold tracking-wide text-slate-300">{streak}일 연속</span>
+          <span className="text-xs md:text-sm font-bold tracking-wide text-slate-700 dark:text-slate-300">{streak}일 연속</span>
         </div>
+        <button
+          onClick={onToggleTheme}
+          className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700"
+          title={theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}
+        >
+          {theme === 'dark'
+            ? <Sun size={16} className="text-slate-400 hover:text-yellow-400 transition-colors" />
+            : <Moon size={16} className="text-slate-500 hover:text-indigo-500 transition-colors" />
+          }
+        </button>
         {showHomeButton && (
           <button
             onClick={onHomeClick}
-            className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all border border-slate-700"
+            className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700"
           >
-            <Home size={16} className="text-slate-400 hover:text-white transition-colors" />
+            <Home size={16} className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors" />
           </button>
         )}
       </div>
