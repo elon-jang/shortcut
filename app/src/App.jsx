@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { Header, ProfileBanner, CategoryCard, ModeSelector, QuizCard, ResultScreen, Footer, KeyboardHelp, ShortcutList } from './components';
+import { Header, ProfileBanner, CategoryCard, ModeSelector, QuizCard, ResultScreen, Footer, KeyboardHelp, ShortcutList, CheatSheet } from './components';
 import { useUserData } from './hooks/useUserData';
 import { useGameState } from './hooks/useGameState';
 import { useKeyboard } from './hooks/useKeyboard';
+import { useTheme } from './hooks/useTheme';
 import { normalizeKeys } from './utils/keyNormalization';
 import { SHORTCUT_DATA } from './data/shortcuts';
 
@@ -39,6 +40,8 @@ function App() {
     incrementTimer,
     generateChoiceOptions,
   } = useGameState();
+
+  const [theme, toggleTheme] = useTheme();
 
   const [retryCount, setRetryCount] = useState(0);
   const [sessionResults, setSessionResults] = useState([]);
@@ -208,6 +211,9 @@ function App() {
         } else if (gameState === 'reference') {
           e.preventDefault();
           setGameState(listReturnState);
+        } else if (gameState === 'cheatsheet') {
+          e.preventDefault();
+          setGameState('menu');
         }
         return;
       }
@@ -275,12 +281,14 @@ function App() {
   }, [gameState, currentMode, isTypingActive, feedback, options, activeQuestions, currentIndex, cardFlipped, activeCategory, resetToMenu, goToModeSelect, startGame, processResult, setCardFlipped, handleFlashcardNext, showHelp, listReturnState]);
 
   return (
-    <div className="min-h-screen bg-[#0b0f1a] text-slate-100 font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f1a] text-slate-900 dark:text-slate-100 font-sans overflow-x-hidden">
       <div className="max-w-2xl mx-auto px-4 py-4 md:px-6">
         <Header
           streak={streak}
           showHomeButton={gameState !== 'menu'}
           onHomeClick={resetToMenu}
+          theme={theme}
+          onToggleTheme={toggleTheme}
         />
 
         <main>
@@ -298,6 +306,14 @@ function App() {
                 onSelectCategory={selectCategory}
                 getCategoryProgress={getCategoryProgress}
               />
+              <div className="mt-4 flex justify-center">
+                <button
+                  onClick={() => setGameState('cheatsheet')}
+                  className="flex items-center gap-2 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-xs font-bold transition-colors px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                >
+                  🗒️ Cheat Sheet 보기
+                </button>
+              </div>
             </div>
           )}
 
@@ -314,6 +330,13 @@ function App() {
             <ShortcutList
               activeCategory={activeCategory}
               onBack={() => setGameState(listReturnState)}
+              progress={progress}
+            />
+          )}
+
+          {gameState === 'cheatsheet' && (
+            <CheatSheet
+              onBack={() => setGameState('menu')}
               progress={progress}
             />
           )}
