@@ -82,7 +82,7 @@ export const QuizCard = ({
       <div className={`w-full bg-white dark:bg-slate-800/90 border rounded-2xl px-6 py-5 md:px-8 md:py-6 text-center shadow-lg relative transition-all duration-300 ${
         feedback === 'correct' ? 'border-green-500/60 shadow-green-500/10' :
         feedback === 'retry' ? 'border-yellow-500/60 animate-shake' :
-        feedback === 'wrong' ? 'border-red-500/60 shadow-red-500/10' : 'border-slate-700/60'
+        feedback === 'wrong' ? 'border-red-500/60 shadow-red-500/10' : 'border-slate-200 dark:border-slate-700/60'
       }`}>
         {/* App badge */}
         <div className={`inline-flex items-center gap-1.5 px-3 py-1 ${activeCategory?.color || 'bg-slate-900'} border border-white/10 rounded-lg text-white mb-3`}>
@@ -108,7 +108,7 @@ export const QuizCard = ({
         {feedback === 'wrong' && (
           <div className="mb-4 py-2 px-4 bg-red-500/10 border border-red-500/20 rounded-xl">
             <p className="text-red-400 text-[10px] md:text-xs font-bold mb-0.5">정답</p>
-            <p className="text-white text-base md:text-lg font-mono font-black">{question.keys}</p>
+            <p className="text-slate-900 dark:text-white text-base md:text-lg font-mono font-black">{question.keys}</p>
           </div>
         )}
 

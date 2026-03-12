@@ -9,7 +9,7 @@ export const FlashcardMode = ({ answer, tip, flipped, feedback, onFlip, onCorrec
           onClick={() => !feedback && onFlip()}
           className={`absolute inset-0 backface-hidden bg-slate-100 dark:bg-slate-900/60 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700/60 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-indigo-500/50 transition-all group z-20 ${flipped ? 'pointer-events-none invisible' : 'pointer-events-auto visible'}`}
         >
-          <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-full group-hover:bg-indigo-600/15 transition-all border border-slate-200 dark:border-slate-700/50">
+          <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-full group-hover:bg-indigo-600/15 transition-all border border-slate-300 dark:border-slate-700/50">
             <Eye size={28} className="text-slate-500 dark:text-slate-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors" />
           </div>
           <span className="text-sm md:text-base font-bold text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">정답 확인</span>
