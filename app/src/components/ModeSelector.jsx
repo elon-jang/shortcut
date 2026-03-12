@@ -60,7 +60,7 @@ export const ModeSelector = ({ activeCategory, onBack, onStartGame, onViewList }
                 <span className={`text-xs md:text-sm font-mono tabular-nums ${disabled ? 'text-slate-700' : 'text-slate-500 dark:text-slate-600 group-hover:text-indigo-400'}`}>
                   {i + 1}
                 </span>
-                <div className={`p-2.5 rounded-lg transition-all ${disabled ? 'bg-slate-800 text-slate-600' : 'bg-slate-200 dark:bg-slate-800 text-indigo-500 dark:text-indigo-400 group-hover:scale-105'}`}>
+                <div className={`p-2.5 rounded-lg transition-all ${disabled ? 'bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-600' : 'bg-slate-200 dark:bg-slate-800 text-indigo-500 dark:text-indigo-400 group-hover:scale-105'}`}>
                   {MODE_ICONS[m.id]}
                 </div>
                 <div className="text-left flex-1 min-w-0">
