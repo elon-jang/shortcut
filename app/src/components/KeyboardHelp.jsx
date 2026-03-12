@@ -1,7 +1,7 @@
 import { X } from 'lucide-react';
 
 const Key = ({ children }) => (
-  <kbd className="inline-block bg-slate-700 border border-slate-600 rounded px-1.5 py-0.5 text-[11px] font-mono font-bold text-slate-200 min-w-[22px] text-center">
+  <kbd className="inline-block bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded px-1.5 py-0.5 text-[11px] font-mono font-bold text-slate-700 dark:text-slate-200 min-w-[22px] text-center">
     {children}
   </kbd>
 );
@@ -16,7 +16,7 @@ const Row = ({ keys, desc }) => (
         </span>
       ))}
     </div>
-    <span className="text-slate-400 text-xs">{desc}</span>
+    <span className="text-slate-600 dark:text-slate-400 text-xs">{desc}</span>
   </div>
 );
 
@@ -24,12 +24,12 @@ export const KeyboardHelp = ({ gameState, currentMode, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={onClose}>
       <div
-        className="bg-slate-800 border border-slate-700 rounded-2xl p-5 md:p-6 max-w-sm w-full shadow-2xl animate-in zoom-in-95 duration-200"
+        className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 md:p-6 max-w-sm w-full shadow-2xl animate-in zoom-in-95 duration-200"
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-black tracking-tight uppercase text-slate-300">Keyboard Shortcuts</h3>
-          <button onClick={onClose} className="text-slate-500 hover:text-white transition-colors">
+          <h3 className="text-sm font-black tracking-tight uppercase text-slate-700 dark:text-slate-300">Keyboard Shortcuts</h3>
+          <button onClick={onClose} className="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
             <X size={16} />
           </button>
         </div>
@@ -68,7 +68,7 @@ export const KeyboardHelp = ({ gameState, currentMode, onClose }) => {
           </div>
         </div>
 
-        <p className="text-[9px] text-slate-600 mt-4 text-center">Press <Key>?</Key> or <Key>Esc</Key> to close</p>
+        <p className="text-[9px] text-slate-500 dark:text-slate-600 mt-4 text-center">Press <Key>?</Key> or <Key>Esc</Key> to close</p>
       </div>
     </div>
   );
