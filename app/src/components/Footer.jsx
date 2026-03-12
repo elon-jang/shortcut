@@ -2,7 +2,7 @@ import { ExternalLink } from 'lucide-react';
 
 export const Footer = ({ onHelpClick }) => {
   return (
-    <footer className="mt-10 border-t border-slate-800/60 pt-4 pb-6 flex justify-between items-center text-slate-600 text-[10px] font-medium tracking-wider">
+    <footer className="mt-10 border-t border-slate-200 dark:border-slate-800/60 pt-4 pb-6 flex justify-between items-center text-slate-500 dark:text-slate-600 text-[10px] font-medium tracking-wider">
       <p>© 2026 Shortcut Pro</p>
       <div className="flex items-center gap-3">
         <button
