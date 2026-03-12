@@ -116,7 +116,7 @@ export const QuizCard = ({
         {(feedback === 'correct' || feedback === 'wrong') && question.tip && (
           <div className="mb-4 py-2 px-4 bg-amber-500/8 border border-amber-500/20 rounded-xl text-left">
             <p className="text-amber-400 text-[10px] md:text-xs font-bold mb-0.5">💡 TIP</p>
-            <p className="text-amber-200 text-xs md:text-sm">{question.tip}</p>
+            <p className="text-amber-600 dark:text-amber-200 text-xs md:text-sm">{question.tip}</p>
           </div>
         )}
 

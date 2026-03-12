@@ -35,11 +35,11 @@ export const ProfileBanner = ({ levelProgress, userData, isTodayComplete, master
         {mastered > 0 && (
           <div className="bg-slate-100 dark:bg-slate-900/60 px-3 py-2 rounded-xl text-center border border-emerald-500/20">
             <Award size={14} className="mx-auto mb-0.5 text-emerald-400" />
-            <p className="text-[10px] md:text-xs font-black text-emerald-400">{mastered}<span className="text-slate-600">/{total}</span></p>
+            <p className="text-[10px] md:text-xs font-black text-emerald-400">{mastered}<span className="text-slate-500 dark:text-slate-600">/{total}</span></p>
           </div>
         )}
         <div className="bg-slate-100 dark:bg-slate-900/60 px-3 py-2 rounded-xl text-center border border-slate-200 dark:border-slate-700/50">
-          <Target size={14} className={`mx-auto mb-0.5 ${isTodayComplete ? 'text-green-400' : 'text-slate-600'}`} />
+          <Target size={14} className={`mx-auto mb-0.5 ${isTodayComplete ? 'text-green-400' : 'text-slate-500 dark:text-slate-600'}`} />
           <p className={`text-[10px] md:text-xs font-black ${isTodayComplete ? 'text-green-400' : 'text-slate-500'}`}>
             {isTodayComplete ? 'DONE' : 'READY'}
           </p>
