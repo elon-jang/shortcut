@@ -23,6 +23,8 @@ shortcuts:
         description: 다음 탭
       - shortcut: Ctrl+Shift+Tab
         description: 이전 탭
+      - shortcut: Shift+Cmd+{
+        description: 이전 탭 활성화 (Activate Previous Tab)
       - shortcut: Shift+Cmd+}
         description: 다음 탭 활성화 (Activate Next Tab)
       - shortcut: Cmd+1~9
