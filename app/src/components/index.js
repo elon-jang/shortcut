@@ -11,3 +11,4 @@ export { ResultScreen } from './ResultScreen';
 export { Footer } from './Footer';
 export { KeyboardHelp } from './KeyboardHelp';
 export { ShortcutList } from './ShortcutList';
+export { CheatSheet } from './CheatSheet';
